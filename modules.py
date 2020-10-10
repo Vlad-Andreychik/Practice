@@ -30,3 +30,10 @@ def simple_or_not():
         count += 1
         a += 2
     print(p)
+
+
+def using_name():
+    if __name__ == '__main__':
+        print('Эта программа запущена сама по себе.')
+    else:
+        print('Меня импортировали в другой модуль.')
