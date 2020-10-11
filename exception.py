@@ -36,3 +36,9 @@ class ShortInputException(Exception):
         Exception.__init__(self)
         self.length = length
         self.atleast = atleast
+
+
+def with_with():
+    with open('poem.txt') as f:
+        for line in f:
+            print(line, end='')
