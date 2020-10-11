@@ -22,7 +22,7 @@ def shop():
     print('Теперь мой список покупок: ', shoplist)
 
 
-def tuple():
+def using_tuple():
     zoo = ('питон', 'слон', 'пингвин')
     print('Количество животных в зоопарке - ', len(zoo))
 
@@ -78,3 +78,21 @@ def seq():
     print('Символы с 2 до конца:', name[2:])
     print('Символы с 1 до -1:', name[1:-1])
     print('Символы от начала до конца:', name[:])
+
+
+def reference():
+    print('Простое присваивание')
+    shoplist = ['яблоки', 'манго', 'морковь', 'бананы']
+    mylist = shoplist
+
+    del shoplist[0]
+
+    print('shoplist:', shoplist)
+    print('mylist:', mylist)
+
+    print('Копирование при помощи полной вырезки')
+    mylist = shoplist[:]
+    del mylist[0]
+
+    print('shoplist:', shoplist)
+    print('mylist:', mylist)
