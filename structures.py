@@ -33,3 +33,25 @@ def tuple():
     print('Последнее животное, привезенное из старого зоопарка - ', new_zoo[2][2])
     print('Количество животных в новом зоопарке - ', len(new_zoo) - 1 + \
           len(new_zoo[2]))
+
+
+def using_dict():
+    ab = {'Swaroop': 'swaroop@swaroopch.com',
+          'Larry': 'larry@wall.org',
+          'Matsumoto': 'matz@ruby-lang.org',
+          'Spammer': 'spammer@hotmail.com'
+          }
+
+    print("Адрес Swaroop'a: ", ab['Swaroop'])
+
+    del ab['Spammer']
+
+    print('\nВ адресной книге {0} контакта\n'.format(len(ab)))
+
+    for name, address in ab.items():
+        print('Контакт {0} с адресом {1}'.format(name, address))
+
+    ab['Guido'] = 'guido@python.org'
+
+    if 'Guido' in ab:
+        print('\nАдрес Guido: ', ab['Guido'])
