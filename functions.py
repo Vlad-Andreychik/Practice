@@ -11,41 +11,40 @@ def sayHello():
 def printMax(a, b):
     logger = logging.getLogger("exampleApp.functions.printMax")
     if a > b:
-        logger.info('%s максимально' % (a))
+        logger.info('%s максимально' % a)
     elif a == b:
         logger.info('%s равно %s' % (a, b))
     else:
-        logger.info('%s максимально' % (b))
+        logger.info('%s максимально' % b)
 
 
 def func(x):
     logger = logging.getLogger("exampleApp.functions.func")
-    logger.info('x  равен %s' % (x))
+    logger.info('x  равен %s' % x)
     x = 2
-    logger.info('Замена локального x на %s' % (x))
+    logger.info('Замена локального x на %s' % x)
 
 
 def func_global():
     logger = logging.getLogger("exampleApp.functions.func_global")
     global x
 
-    logger.info('x равно %s' % (x))
+    logger.info('x равно %s' % x)
     x = 2
-    logger.info('Заменяем глобальное значение х на %s', (x))
+    logger.info('Заменяем глобальное значение х на %s' % x)
 
 
 def func_outer():
     logger = logging.getLogger("exampleApp.functions.func_outer")
     x = 2
-    logger.info('х равно %s' % (x))
+    logger.info('х равно %s' % x)
 
     def func_inner():
-        logger = logging.getLogger("exampleApp.func_inner")
         nonlocal x
         x = 5
 
     func_inner()
-    logger.info('Локальное х сменилось на %s' % (x))
+    logger.info('Локальное х сменилось на %s' % x)
 
 
 def say(message, times=1):
@@ -97,6 +96,6 @@ def printMax_desc(x, y):
     y = int(y)
 
     if x > y:
-        logger.info('%s наибольшее' % (x))
+        logger.info('%s наибольшее' % x)
     else:
-        logger.info('наибольшее' % (y))
+        logger.info('наибольшее %s' % y)
