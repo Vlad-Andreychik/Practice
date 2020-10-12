@@ -1,85 +1,102 @@
+import logging
+
+x = 105
+
+
 def sayHello():
-    print('Привет, Мир!')
+    logger = logging.getLogger("exampleApp.functions.sayHello")
+    logger.info('Привет, Мир!')
 
 
 def printMax(a, b):
+    logger = logging.getLogger("exampleApp.functions.printMax")
     if a > b:
-        print(a, 'максимально')
+        logger.info('%s максимально' % (a))
     elif a == b:
-        print(a, 'равно', b)
+        logger.info('%s равно %s' % (a, b))
     else:
-        print(b, 'максимально')
+        logger.info('%s максимально' % (b))
 
 
 def func(x):
-    print('x  равен', x)
+    logger = logging.getLogger("exampleApp.functions.func")
+    logger.info('x  равен %s' % (x))
     x = 2
-    print('Замена локального x на', x)
+    logger.info('Замена локального x на %s' % (x))
 
 
 def func_global():
+    logger = logging.getLogger("exampleApp.functions.func_global")
     global x
 
-    print('x равно', x)
+    logger.info('x равно %s' % (x))
     x = 2
-    print('Заменяем глобальное значение х на', x)
+    logger.info('Заменяем глобальное значение х на %s', (x))
 
 
 def func_outer():
+    logger = logging.getLogger("exampleApp.functions.func_outer")
     x = 2
-    print('х равно', x)
+    logger.info('х равно %s' % (x))
 
     def func_inner():
+        logger = logging.getLogger("exampleApp.func_inner")
         nonlocal x
         x = 5
 
     func_inner()
-    print('Локальное х сменилось на', x)
+    logger.info('Локальное х сменилось на %s' % (x))
 
 
 def say(message, times=1):
-    print(message * times)
+    logger = logging.getLogger("exampleApp.functions.say")
+    logger.info(message * times)
 
 
 def func_key(a, b=5, c=10):
-    print('а равно', a, ', b равно', b, ', а с равно', c)
+    logger = logging.getLogger("exampleApp.functions.func_key")
+    logger.info('а равно %s, b равно %s, а с равно %s' % (a, b, c))
 
 
 def total(a=5, *numbers, **phonebook):
-    print('a', a)
+    logger = logging.getLogger("exampleApp.functions.total")
+    logger.info(a)
 
     for single_item in numbers:
-        print('single_item', single_item)
+        logger.info(single_item)
 
     for first_part, second_part in phonebook.items():
-        print(first_part, second_part)
+        logger.info((first_part, second_part))
 
 
 def total_only(initial=5, *numbers, extra_number):
+    logger = logging.getLogger("exampleApp.functions.total_only")
     count = initial
     for number in numbers:
         count += number
     count += extra_number
-    print(count)
+    logger.info(count)
 
 
 def maximum(x, y):
+    logger = logging.getLogger("exampleApp.functions.total")
     if x > y:
-        return x
+        logger.info(x)
     elif x == y:
-        return 'Числа равны.'
+        logger.info('Числа равны.')
     else:
-        return y
+        logger.info(y)
 
 
 def printMax_desc(x, y):
     """Выводит максимальное из двух чисел.
 
     Оба значения должны быть целыми числами."""
+    logger = logging.getLogger("exampleApp.functions.total")
     x = int(x)
     y = int(y)
 
     if x > y:
-        print(x, 'наибольшее')
+        logger.info('%s наибольшее' % (x))
     else:
-        print(y, 'наибольшее')
+        logger.info('наибольшее' % (y))

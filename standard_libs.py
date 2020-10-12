@@ -29,7 +29,6 @@ def use_logging():
         level=logging.DEBUG,
         format='%(asctime)s : %(levelname)s : %(message)s',
         filename=logging_file,
-        filemode='w',
     )
     logging.debug("Начало программы")
     logging.info("Какие-то действия")
