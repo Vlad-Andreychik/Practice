@@ -19,7 +19,8 @@ def shop():
     olditem = shoplist[0]
     del shoplist[0]
     print('Я купил', olditem)
-    print('Теперь мой список покупок: ', shoplist)
+    print('Теперь мой список покупок: ', shoplist, '\n')
+    return shoplist
 
 
 def using_tuple():
@@ -31,8 +32,9 @@ def using_tuple():
     print('Все животные в новом зоопарке: ', new_zoo)
     print('Животные, привезенные из старого зоопарка: ', new_zoo[2])
     print('Последнее животное, привезенное из старого зоопарка - ', new_zoo[2][2])
-    print('Количество животных в новом зоопарке - ', len(new_zoo) - 1 + \
+    print('Количество животных в новом зоопарке - ', len(new_zoo) - 1 +
           len(new_zoo[2]))
+    return new_zoo
 
 
 def using_dict():
@@ -55,6 +57,7 @@ def using_dict():
 
     if 'Guido' in ab:
         print('\nАдрес Guido: ', ab['Guido'])
+    return ab
 
 
 def seq():
@@ -78,6 +81,7 @@ def seq():
     print('Символы с 2 до конца:', name[2:])
     print('Символы с 1 до -1:', name[1:-1])
     print('Символы от начала до конца:', name[:])
+    return shoplist
 
 
 def reference():

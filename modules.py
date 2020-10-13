@@ -8,10 +8,10 @@ def imp_sys():
         print(i)
 
     print('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
+    return sys.path
 
 
-def simple_or_not():
-    n = int(input("Введите диапазон:- "))
+def simple_or_not(n):
     p = [2, 3]
     count = 2
     a = 5
@@ -30,6 +30,7 @@ def simple_or_not():
         count += 1
         a += 2
     print(p)
+    return p
 
 
 def using_name():
@@ -37,10 +38,11 @@ def using_name():
         print('Эта программа запущена сама по себе.')
     else:
         print('Меня импортировали в другой модуль.')
+    return __name__
 
 
 def sayhi():
-    print('Привет! Это говорит мой модуль.')
+    return 'Привет! Это говорит мой модуль.'
 
 
 __version__ = '0.1'
