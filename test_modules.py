@@ -12,3 +12,5 @@ def test_simple_or_not():
     assert (modules.simple_or_not(-5)) == [2, 3]
 
 
+def test_using_name():
+    assert (modules.using_name()) == 'modules'
