@@ -14,3 +14,8 @@ def test_using_tuple():
 def test_using_dict():
     assert (len(structures.using_dict())) == 4
     assert (structures.using_dict()['Matsumoto']) == 'matz@ruby-lang.org'
+
+
+def test_seq():
+    assert (structures.seq()[-1]) == 'бананы'
+    assert (len(structures.seq())) == 4
