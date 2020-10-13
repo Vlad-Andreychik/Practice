@@ -14,3 +14,7 @@ def test_simple_or_not():
 
 def test_using_name():
     assert (modules.using_name()) == 'modules'
+
+
+def test_sayhi():
+    assert (modules.sayhi()) == 'Привет! Это говорит мой модуль.'
