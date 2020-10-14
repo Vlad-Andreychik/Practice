@@ -2,6 +2,8 @@ import sys
 from math import sqrt
 
 
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+
 def imp_sys():
     print('Аргументы командной строки:')
     for i in sys.argv:
@@ -40,7 +42,7 @@ def using_name():
         print('Меня импортировали в другой модуль.')
     return __name__
 
-
+# TODO[agorozhanko 14.10.2020]: название нужно исправить
 def sayhi():
     return 'Привет! Это говорит мой модуль.'
 

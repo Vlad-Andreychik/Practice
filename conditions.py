@@ -1,7 +1,7 @@
 # Использование оператора while
 number = 23
 running = True
-
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
 while running:
     guess = int(input('Введите целое число : '))
 

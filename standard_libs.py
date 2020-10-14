@@ -5,6 +5,8 @@ import sys
 import warnings
 
 
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[agorozhanko 14.10.2020]: название нужно исправить
 def versioncheck():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \

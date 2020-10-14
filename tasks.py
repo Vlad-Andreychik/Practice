@@ -2,6 +2,8 @@ import os
 import time
 
 
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+
 def backup_ver1():
     source = ['C:\\Users', 'G:\\kyrs']
 

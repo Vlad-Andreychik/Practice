@@ -1,6 +1,7 @@
 import time
 
 
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
 def try_except():
     try:
         text = input('Введите что-нибудь --> ')
