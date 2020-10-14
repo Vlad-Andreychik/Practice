@@ -19,3 +19,12 @@ def test_using_dict():
 def test_seq():
     assert (structures.seq()[-1]) == 'бананы'
     assert (len(structures.seq())) == 4
+
+
+def test_reference():
+    assert (len(structures.reference()[0]) - len(structures.reference()[1])) == -1
+
+
+def test_str_methods():
+    assert (structures.str_methods()[0].startswith('Swa'))
+    assert ('Россия' in structures.str_methods()[1])

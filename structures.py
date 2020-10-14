@@ -108,6 +108,7 @@ def reference():
 
     print('shoplist:', shoplist)
     print('mylist:', mylist)
+    return mylist, shoplist
 
 
 def str_methods():
@@ -126,3 +127,4 @@ def str_methods():
     # TODO[agorozhanko 14.10.2020]: название нужно исправить
     mylist = ['Бразилия', 'Россия', 'Индия', 'Китай']
     print(delimiter.join(mylist))
+    return name, mylist
