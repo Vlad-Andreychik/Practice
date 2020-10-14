@@ -100,6 +100,7 @@ def reference():
 
     print('shoplist:', shoplist)
     print('mylist:', mylist)
+    return mylist, shoplist
 
 
 def str_methods():
@@ -117,3 +118,4 @@ def str_methods():
     delimiter = '_*_'
     mylist = ['Бразилия', 'Россия', 'Индия', 'Китай']
     print(delimiter.join(mylist))
+    return name, mylist
