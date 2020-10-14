@@ -1,11 +1,15 @@
 import functions
 
 
+# TODO[agorozhanko 14.10.2020]: это не тесты а просто функции которые не запускаются, для написания тестов нужно
+#  использовать библитотеку pytest
+
 def test_say_hello():
     assert (type(functions.sayHello())) == str
     assert (functions.sayHello()) == 'Привет, Мир!'
 
 
+# TODO[agorozhanko 14.10.2020]: название нужно исправить
 def test_printmax():
     assert (functions.printMax(7, 8)) == 8
     assert (functions.printMax(8, 8)) == 8
@@ -32,6 +36,7 @@ def test_key():
 
 
 def test_total():
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     phonebook = {'jerry': 123, 'kok': 432}
     assert (functions.total(3, 5, 7, jerry=123, kok=432)) == (3, [5, 7], phonebook)
 

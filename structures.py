@@ -1,4 +1,8 @@
+# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+
+
 def shop():
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     shoplist = ['яблоки', 'манго', 'морковь', 'бананы']
 
     print('Я должен сделать', len(shoplist), 'покупки: ')
@@ -16,6 +20,7 @@ def shop():
     print('Отсортированный список покупок выглядит так: ', shoplist)
 
     print('Первое, что мне нужно купить, это', shoplist[0])
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     olditem = shoplist[0]
     del shoplist[0]
     print('Я купил', olditem)
@@ -61,6 +66,7 @@ def using_dict():
 
 
 def seq():
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     shoplist = ['яблоки', 'манго', 'морковь', 'бананы']
     name = 'swaroop'
 
@@ -86,7 +92,9 @@ def seq():
 
 def reference():
     print('Простое присваивание')
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     shoplist = ['яблоки', 'манго', 'морковь', 'бананы']
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     mylist = shoplist
 
     del shoplist[0]
@@ -115,5 +123,6 @@ def str_methods():
         print('Да, она содержит строку "war"')
 
     delimiter = '_*_'
+    # TODO[agorozhanko 14.10.2020]: название нужно исправить
     mylist = ['Бразилия', 'Россия', 'Индия', 'Китай']
     print(delimiter.join(mylist))

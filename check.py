@@ -4,6 +4,7 @@ import logging.config
 import functions
 
 
+# TODO[agorozhanko 14.10.2020]: код не компилируется
 def main():
     logging.config.fileConfig('logging.conf')
     logger = logging.getLogger('exampleApp.functions.func_key')
