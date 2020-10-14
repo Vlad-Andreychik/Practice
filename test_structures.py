@@ -1,8 +1,6 @@
 import structures
 
 
-# TODO[agorozhanko 14.10.2020]: это не тесты а просто функции которые не запускаются, для написания тестов нужно
-#  использовать библитотеку pytest
 def test_shop():
     assert (structures.shop()) == ['манго', 'морковь', 'рис', 'яблоки']
     assert (len(structures.shop())) == 4
