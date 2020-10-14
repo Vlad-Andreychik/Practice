@@ -39,11 +39,13 @@ def using_file():
 
 def pickling():
     # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    shoplistfile = 'shoplist.data'
+    # TODO[vandreychyk 15.10.2020]: название исправлено
+    shop_list_file = 'shop_list.data'
     # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    shoplist = ['яблоки', 'манго', 'морковь']
+    # TODO[vandreychyk 15.10.2020]: название исправлено
+    shop_list = ['яблоки', 'манго', 'морковь']
 
-    f = open(shoplistfile, 'wb')
-    pickle.dump(shoplist, f)
+    f = open(shop_list_file, 'wb')
+    pickle.dump(shop_list, f)
     f.close()
-    del shoplist
+    del shop_list
