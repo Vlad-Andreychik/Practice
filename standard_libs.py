@@ -7,7 +7,8 @@ import warnings
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
 # TODO[agorozhanko 14.10.2020]: название нужно исправить
-def versioncheck():
+# TODO[vandreychyk 15.10.2020]: название исправлено
+def version_check():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \
     версия Python 3.0",
