@@ -1,5 +1,6 @@
 import os
 import time
+import logging
 
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
@@ -12,11 +13,11 @@ def backup_ver1():
     target = target_dir + os.sep + time.strftime('%Y%m%d%H%M%S') + '.zip'
 
     zip_command = "zip -qr {0} {1}".format(target, ' '.join(source))
-    print(zip_command)
+    logger.info(zip_command)
     if os.system(zip_command) == 0:
-        print('Резервная копия успешно создана в', target)
+        logger.info('Резервная копия успешно создана в', target)
     else:
-        print('Создание резервной копии НЕ УДАЛОСЬ')
+        logger.info('Создание резервной копии НЕ УДАЛОСЬ')
 
 
 def backup_ver2():
@@ -33,16 +34,16 @@ def backup_ver2():
 
     if not os.path.exists(today):
         os.mkdir(today)
-    print('Каталог успешно создан', today)
+    logger.info('Каталог успешно создан', today)
 
     target = today + os.sep + now + '.zip'
 
     zip_command = "zip -qr {0} {1}".format(target, ' '.join(source))
 
     if os.system(zip_command) == 0:
-        print('Резервная копия успешно создана в', target)
+        logger.info('Резервная копия успешно создана в', target)
     else:
-        print('Создание резервной копии НЕ УДАЛОСЬ')
+        logger.info('Создание резервной копии НЕ УДАЛОСЬ')
 
 
 def backup_ver3():
@@ -62,11 +63,11 @@ def backup_ver3():
 
     if not os.path.exists(today):
         os.mkdir(today)
-    print('Каталог успешно создан', today)
+    logger.info('Каталог успешно создан', today)
 
     zip_command = "zip -qr {0} {1}".format(target, ' '.join(source))
 
     if os.system(zip_command) == 0:
-        print('Резервная копия успешно создана в', target)
+        logger.info('Резервная копия успешно создана в', target)
     else:
-        print('Создание резервной копии НЕ УДАЛОСЬ')
+        logger.info('Создание резервной копии НЕ УДАЛОСЬ')
