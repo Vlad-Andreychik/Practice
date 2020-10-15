@@ -1,16 +1,17 @@
-import logging
-import logging.config
-
 import functions
+import logging
 
 
 # TODO[agorozhanko 14.10.2020]: код не компилируется
+# TODO[vandreychyk 15.10.2020]: исправлено
 def main():
-    logging.config.fileConfig('logging.conf')
-    logger = logging.getLogger('exampleApp.functions.func_key')
+    logging.basicConfig(filename='config.log',
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        level=logging.INFO)
+    logger = logging.getLogger('functions.printMax')
 
     logger.info("Program started")
-    functions.func_key(8)
+    functions.printMax(4, 6)
     logger.info("Done!")
 
 
