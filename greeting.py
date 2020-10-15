@@ -24,3 +24,4 @@ def greeting():
     a = 2
     a = a * 3
     logger.info(a)
+    return a, i, name, age
