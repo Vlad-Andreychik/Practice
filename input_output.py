@@ -39,6 +39,7 @@ def using_file():
             break
         logger.info(line, end='')
     f.close()
+    return poem, line
 
 
 def pickling():

@@ -22,6 +22,7 @@ def using_while():
         logger.info('Цикл while закончен.')
 
     logger.info('Завершение.')
+    return running, number
 
 
 def using_if():
@@ -43,6 +44,7 @@ def using_for():
         logger.info(i)
     else:
         logger.info('Цикл for закончен')
+    return i
 
 
 def using_continue():
