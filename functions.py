@@ -1,21 +1,18 @@
 import logging
-import logging.config
 
 x = 105
 
-logger = logging.getLogger('functions.%s' % __name__)
+logger = logging.getLogger(__name__)
 
 
 # TODO[agorozhanko 14.10.2020]: logger настраивается для всего модуля, а не в каждой функции
-
+# TODO[vandreychyk 15.10.2020]: настроил logger для всего модуля
 def sayHello():
-    # logger = logging.getLogger("exampleApp.functions.sayHello")
     logger.info('Привет, Мир!')
     return 'Привет, Мир!'
 
 
 def printMax(a, b):
-    # logger = logging.getLogger("exampleApp.functions.printMax")
     if a > b:
         logger.info('%s максимально' % a)
         max = a
@@ -29,7 +26,6 @@ def printMax(a, b):
 
 
 def func(x):
-    # logger = logging.getLogger("exampleApp.functions.func")
     logger.info('x  равен %s' % x)
     a = x
     x = 2
@@ -38,7 +34,6 @@ def func(x):
 
 
 def func_global():
-    # logger = logging.getLogger("exampleApp.functions.func_global")
     global x
     a = x
 
@@ -49,7 +44,6 @@ def func_global():
 
 
 def func_outer():
-    # logger = logging.getLogger("exampleApp.functions.func_outer")
     x = 2
     a = x
     logger.info('х равно %s' % x)
@@ -66,7 +60,6 @@ def func_outer():
 # TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
 # TODO[vandreychyk 14.10.2020]: код оптимизировал
 def say(message, times=1):
-    # logger = logging.getLogger("exampleApp.functions.say")
     logger.info(message * times)
     return message, times, message * times
 
@@ -74,7 +67,6 @@ def say(message, times=1):
 # TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
 # TODO[vandreychyk 14.10.2020]: код оптимизировал
 def func_key(a, b=5, c=10):
-    # logger = logging.getLogger("exampleApp.functions.func_key")
     logger.info('а равно %s, b равно %s, а с равно %s' % (a, b, c))
     return a, b, c
 
@@ -82,7 +74,6 @@ def func_key(a, b=5, c=10):
 # TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
 # TODO[vandreychyk 14.10.2020]: код оптимизировал
 def total(a=5, *numbers, **phonebook):
-    # logger = logging.getLogger("exampleApp.functions.total")
     logger.info(a)
 
     items = []
@@ -96,7 +87,6 @@ def total(a=5, *numbers, **phonebook):
 
 
 def total_only(initial=5, *numbers, extra_number=1):
-    # logger = logging.getLogger("exampleApp.functions.total_only")
     count = initial
     for number in numbers:
         count += number
@@ -106,7 +96,6 @@ def total_only(initial=5, *numbers, extra_number=1):
 
 
 def maximum(x, y):
-    # logger = logging.getLogger("exampleApp.functions.total")
     if x > y:
         logger.info(x)
         return x
@@ -124,7 +113,6 @@ def print_max_desc(x, y):
     """Выводит максимальное из двух чисел.
 
     Оба значения должны быть целыми числами."""
-    # logger = logging.getLogger("exampleApp.functions.total")
     x = int(x)
     y = int(y)
 
@@ -132,12 +120,3 @@ def print_max_desc(x, y):
         logger.info('%s наибольшее' % x)
     else:
         logger.info('наибольшее %s' % y)
-
-
-def main():
-    sayHello()
-
-
-if __name__ == '__main__':
-    logging.config.fileConfig('logging.conf')
-    main()
