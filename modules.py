@@ -43,7 +43,8 @@ def using_name():
     return __name__
 
 # TODO[agorozhanko 14.10.2020]: название нужно исправить
-def sayhi():
+# TODO[vandreychyk 15.10.2020]: название исправлено
+def say_hi():
     return 'Привет! Это говорит мой модуль.'
 
 
