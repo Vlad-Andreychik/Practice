@@ -1,15 +1,19 @@
+import logging
 import sys
 from math import sqrt
 
+logger = logging.getLogger(__name__)
+
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[vandreychyk 15.10.2020]: заменил
 
 def imp_sys():
-    print('Аргументы командной строки:')
+    logger.info('Аргументы командной строки:')
     for i in sys.argv:
-        print(i)
+        logger.info(i)
 
-    print('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
+    logger.info('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
     return sys.path
 
 
@@ -22,25 +26,26 @@ def simple_or_not(n):
         for i in range(2, a):
             if i <= sqrt(a):
                 if a % i == 0:
-                    print(a, 'непростое')
+                    logger.info(a, 'непростое')
                     b = 1
                 else:
                     pass
         if b != 1:
-            print(a, 'простое')
+            logger.info(a, 'простое')
             p = p + [a]
         count += 1
         a += 2
-    print(p)
+    logger.info(p)
     return p
 
 
 def using_name():
     if __name__ == '__main__':
-        print('Эта программа запущена сама по себе.')
+        logger.info('Эта программа запущена сама по себе.')
     else:
-        print('Меня импортировали в другой модуль.')
+        logger.info('Меня импортировали в другой модуль.')
     return __name__
+
 
 # TODO[agorozhanko 14.10.2020]: название нужно исправить
 # TODO[vandreychyk 15.10.2020]: название исправлено

@@ -2,20 +2,20 @@
 # TODO[vandreychyk 14.10.2020]: print на logger заменил
 import logging
 
+logger = logging.getLogger(__name__)
+
 
 def get_error_details():
     return 2, 'описание ошибки №2'
 
 
 def using_lambda():
-    logger = logging.getLogger("exampleApp.additionally.using_lambda")
     points = [{'x': 2, 'y': 3}, {'x': 4, 'y': 1}]
     points.sort(key=lambda i: i['y'])
     logger.info(points)
 
 
 def list_comprehension():
-    logger = logging.getLogger("exampleApp.additionally.list_comprehension")
     # TODO[agorozhanko 14.10.2020]: название нужно исправить
     # TODO[vandreychyk 14.10.2020]: название исправлено
     list_one = [2, 3, 4]

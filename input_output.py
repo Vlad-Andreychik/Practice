@@ -1,7 +1,11 @@
+import logging
 import pickle
+
+logger = logging.getLogger(__name__)
 
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[vandreychyk 15.10.2020]: заменил
 
 def user_input():
     def reverse(text):
@@ -12,9 +16,9 @@ def user_input():
 
     something = input('Введите текст: ')
     if is_palindrome(something):
-        print('Да, это палиндром')
+        logger.info('Да, это палиндром')
     else:
-        print('Нет, это не палиндром')
+        logger.info('Нет, это не палиндром')
 
 
 def using_file():
@@ -33,7 +37,7 @@ def using_file():
         line = f.readline()
         if len(line) == 0:
             break
-        print(line, end='')
+        logger.info(line, end='')
     f.close()
 
 

@@ -1,40 +1,44 @@
 # Использование оператора while
+import logging
+
 number = 23
 running = True
+logger = logging.getLogger(__name__)
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[vandreychyk 15.10.2020]: заменил
 while running:
     guess = int(input('Введите целое число : '))
 
     if guess == number:
-        print('Поздравляю, вы угадали.')
+        logger.info('Поздравляю, вы угадали.')
         running = False
     elif guess < number:
-        print('Нет, загаданное число немного больше этого.')
+        logger.info('Нет, загаданное число немного больше этого.')
     else:
-        print('Нет, загаданное число немного меньше этого.')
+        logger.info('Нет, загаданное число немного меньше этого.')
 else:
-    print('Цикл while закончен.')
+    logger.info('Цикл while закончен.')
 
-print('Завершение.')
+logger.info('Завершение.')
 
 # Использование оператора if
 number = 23
 guess = int(input('Введите целое число : '))
 
 if guess == number:
-    print('Поздравляю, вы угадали, ')
-    print('(хотя и не выиграли никакого приза!)')
+    logger.info('Поздравляю, вы угадали, ')
+    logger.info('(хотя и не выиграли никакого приза!)')
 elif guess < number:
-    print('Нет, загаданное число немного больше этого.')
+    logger.info('Нет, загаданное число немного больше этого.')
 else:
-    print('Нет, загаданное число немного меньше этого.')
-    print('Завершено')
+    logger.info('Нет, загаданное число немного меньше этого.')
+    logger.info('Завершено')
 
 # Использование оператора for
 for i in range(1, 5):
-    print(i)
+    logger.info(i)
 else:
-    print('Цикл for закончен')
+    logger.info('Цикл for закончен')
 
 # Использование оператора continue
 while True:
@@ -42,14 +46,14 @@ while True:
     if s == 'выход':
         break
     if len(s) < 3:
-        print('Слишком мало')
+        logger.info('Слишком мало')
         continue
-    print('Введенная строка достаточной длины')
+    logger.info('Введенная строка достаточной длины')
 
 # Использование оператора break
 while True:
     s = input('Введите что-нибудь : ')
     if s == 'выход':
         break
-    print('Длина строки : ', len(s))
-print('Завершение')
+    logger.info('Длина строки : ', len(s))
+logger.info('Завершение')

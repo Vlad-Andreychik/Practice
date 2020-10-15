@@ -1,19 +1,22 @@
+import logging
+
+logger = logging.getLogger(__name__)
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[vandreychyk 15.10.2020]: заменил
+logger.info('Hello world')
 
-print('Hello world')
-
-print('''Это многострочная строка. Это её первая строка.
+logger.info('''Это многострочная строка. Это её первая строка.
 Это её вторая строка.
 "What's your name?", - спросил я.
 Он ответил: "Bond, James Bond."
 ''')
 age = 21
 name = 'Vlad'
-print('Возраст {0} -- {1} лет'.format(name, age))
+logger.info('Возраст {0} -- {1} лет'.format(name, age))
 i = 5
-print(i)
+logger.info(i)
 i = i + 1
-print(i)
+logger.info(i)
 a = 2
 a = a * 3
-print(a)
+logger.info(a)

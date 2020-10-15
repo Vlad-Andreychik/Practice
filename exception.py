@@ -1,16 +1,20 @@
+import logging
 import time
+
+logger = logging.getLogger(__name__)
 
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
+# TODO[vandreychyk 15.10.2020]: заменил
 def try_except():
     try:
         text = input('Введите что-нибудь --> ')
     except EOFError:
-        print('Ну зачем вы сделали мне EOF?')
+        logger.info('Ну зачем вы сделали мне EOF?')
     except KeyboardInterrupt:
-        print('Вы отменили операцию.')
+        logger.info('Вы отменили операцию.')
     else:
-        print('Вы ввели {0}'.format(text))
+        logger.info('Вы ввели {0}'.format(text))
 
 
 def final():
@@ -20,14 +24,14 @@ def final():
             line = f.readline()
             if len(line) == 0:
                 break
-            print(line, end='')
+            logger.info(line, end='')
             time.sleep(2)
     except KeyboardInterrupt:
-        print('!! Вы отменили чтение файла.')
+        logger.info('!! Вы отменили чтение файла.')
 
     finally:
         f.close()
-        print('(Очистка: Закрытие файла)')
+        logger.info('(Очистка: Закрытие файла)')
 
 
 class ShortInputException(Exception):
@@ -42,4 +46,4 @@ class ShortInputException(Exception):
 def with_with():
     with open('poem.txt') as f:
         for line in f:
-            print(line, end='')
+            logger.info(line, end='')
