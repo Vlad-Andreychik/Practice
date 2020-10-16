@@ -5,7 +5,7 @@ import time
 logger = logging.getLogger(__name__)
 
 
-def backup_ver1():
+def backup_date_plus_time_file_name():
     source = ['C:\\Users', 'G:\\kyrs']
 
     target_dir = 'G:\\Backup'
@@ -20,7 +20,7 @@ def backup_ver1():
         logger.info('Создание резервной копии НЕ УДАЛОСЬ')
 
 
-def backup_ver2():
+def backup_time_file_name():
     import os
     import time
 
@@ -46,7 +46,7 @@ def backup_ver2():
         logger.info('Создание резервной копии НЕ УДАЛОСЬ')
 
 
-def backup_ver3():
+def backup_with_comment():
     source = ['C:\\Users', 'G:\\kyrs']
 
     target_dir = 'G:\\Backup'
