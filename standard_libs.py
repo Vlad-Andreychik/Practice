@@ -6,6 +6,7 @@ import warnings
 
 
 # TODO[agorozhanko 16.10.2020]: код в модуле не компилируется
+# TODO[vandreychyk 16.10.2020]: исправил
 def version_check():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \
@@ -16,7 +17,7 @@ def version_check():
 
 
 # TODO[agorozhanko 16.10.2020]:для внесения изменений в код нужно использовать функции рефакторинга
-versioncheck()
+version_check()
 
 
 def use_logging():
