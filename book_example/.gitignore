@@ -27,3 +27,4 @@ pip-selfcheck.json
 __pycache__/
 *.log
 *.conf
+log/
