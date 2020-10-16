@@ -1,10 +1,9 @@
 import logging
 
+# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
 
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 15.10.2020]: заменил
 def using_while():
     number = 23
     running = True

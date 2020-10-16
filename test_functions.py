@@ -48,6 +48,6 @@ def test_maximum():
     assert (functions.printMax(8, 8)) == 8
     assert (functions.printMax(9, 8)) == 9
 
-
+# TODO[agorozhanko 16.10.2020]: тест падает
 def test_desc():
     assert (type(functions.printMax_desc.__doc__)) == str

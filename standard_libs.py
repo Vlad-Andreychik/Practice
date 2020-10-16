@@ -5,9 +5,7 @@ import sys
 import warnings
 
 
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[agorozhanko 14.10.2020]: название нужно исправить
-# TODO[vandreychyk 15.10.2020]: название исправлено
+# TODO[agorozhanko 16.10.2020]: код в модуле не компилируется
 def version_check():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \
@@ -17,6 +15,7 @@ def version_check():
         print('Нормальное продолжение')
 
 
+# TODO[agorozhanko 16.10.2020]:для внесения изменений в код нужно использовать функции рефакторинга
 versioncheck()
 
 

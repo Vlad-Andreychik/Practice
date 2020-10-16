@@ -1,12 +1,10 @@
 import logging
 
 x = 105
-
+# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
 
-# TODO[agorozhanko 14.10.2020]: logger настраивается для всего модуля, а не в каждой функции
-# TODO[vandreychyk 15.10.2020]: настроил logger для всего модуля
 def sayHello():
     logger.info('Привет, Мир!')
     return 'Привет, Мир!'
@@ -57,22 +55,16 @@ def func_outer():
     return a, x
 
 
-# TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
-# TODO[vandreychyk 14.10.2020]: код оптимизировал
 def say(message, times=1):
     logger.info(message * times)
     return message, times, message * times
 
 
-# TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
-# TODO[vandreychyk 14.10.2020]: код оптимизировал
 def func_key(a, b=5, c=10):
     logger.info('а равно %s, b равно %s, а с равно %s' % (a, b, c))
     return a, b, c
 
 
-# TODO[agorozhanko 14.10.2020]: нужно оптимизировать код
-# TODO[vandreychyk 14.10.2020]: код оптимизировал
 def total(a=5, *numbers, **phonebook):
     logger.info(a)
 
@@ -107,8 +99,6 @@ def maximum(x, y):
         return y
 
 
-# TODO[agorozhanko 14.10.2020]: название нужно исправить
-# TODO[vandreychyk 14.10.2020]: название исправил
 def print_max_desc(x, y):
     """Выводит максимальное из двух чисел.
 

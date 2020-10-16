@@ -1,11 +1,9 @@
 import logging
 import pickle
 
+# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
-
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 15.10.2020]: заменил
 
 def user_input():
     def reverse(text):
@@ -43,11 +41,7 @@ def using_file():
 
 
 def pickling():
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     shop_list_file = 'shop_list.data'
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     shop_list = ['яблоки', 'манго', 'морковь']
 
     f = open(shop_list_file, 'wb')

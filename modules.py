@@ -1,12 +1,9 @@
 import logging
 import sys
 from math import sqrt
-
+# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
-
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 15.10.2020]: заменил
 
 def imp_sys():
     logger.info('Аргументы командной строки:')
@@ -47,8 +44,6 @@ def using_name():
     return __name__
 
 
-# TODO[agorozhanko 14.10.2020]: название нужно исправить
-# TODO[vandreychyk 15.10.2020]: название исправлено
 def say_hi():
     return 'Привет! Это говорит мой модуль.'
 

@@ -2,8 +2,6 @@ import functions
 import logging
 
 
-# TODO[agorozhanko 14.10.2020]: код не компилируется
-# TODO[vandreychyk 15.10.2020]: исправлено
 def main():
     logging.basicConfig(filename='config.log',
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',

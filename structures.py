@@ -2,12 +2,11 @@ import logging
 
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
 # TODO[vandreychyk 15.10.2020]: заменил
+# TODO[agorozhanko 16.10.2020]: вижу функцию print
 logger = logging.getLogger(__name__)
 
 
 def shop():
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
 
     logger.info('Я должен сделать', len(shop_list), 'покупки: ')
@@ -25,8 +24,6 @@ def shop():
     logger.info('Отсортированный список покупок выглядит так: ', shop_list)
 
     logger.info('Первое, что мне нужно купить, это', shop_list[0])
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     old_item = shop_list[0]
     del shop_list[0]
     logger.info('Я купил', old_item)
@@ -72,8 +69,6 @@ def using_dict():
 
 
 def seq():
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
     name = 'swaroop'
 
@@ -99,11 +94,7 @@ def seq():
 
 def reference():
     print('Простое присваивание')
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     my_list = shop_list
 
     del shop_list[0]
@@ -133,8 +124,6 @@ def str_methods():
         logger.info('Да, она содержит строку "war"')
 
     delimiter = '_*_'
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 15.10.2020]: название исправлено
     my_list = ['Бразилия', 'Россия', 'Индия', 'Китай']
     logger.info(delimiter.join(my_list))
     return name, my_list

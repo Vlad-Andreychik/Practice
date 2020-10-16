@@ -1,11 +1,9 @@
 import logging
-
+# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
 
 def greeting():
-    # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-    # TODO[vandreychyk 15.10.2020]: заменил
     logger.info('Hello world')
 
     logger.info('''Это многострочная строка. Это её первая строка.

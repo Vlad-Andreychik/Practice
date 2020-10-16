@@ -5,8 +5,6 @@ import time
 logger = logging.getLogger(__name__)
 
 
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 15.10.2020]: заменил
 def backup_ver1():
     source = ['C:\\Users', 'G:\\kyrs']
 
