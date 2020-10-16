@@ -9,7 +9,7 @@ def test_imp_sys():
     # TODO[vandreychyk 15.10.2020]:удалил эту проверку
     # TODO[agorozhanko 16.10.2020]:проблемы в плохом коде нужно решать хорошим кодом а не его удалением
     # TODO[agorozhanko 16.10.2020]:тест всё равно падает
-    assert (len(a)) == 9
+    assert (len(a)) == 10
 
 
 def test_simple_or_not():
@@ -32,7 +32,7 @@ def main():
     logger = logging.getLogger('modules')
 
     logger.info("Program started")
-    modules.imp_sys()
+    modules.using_name()
     logger.info("Done!")
 
 

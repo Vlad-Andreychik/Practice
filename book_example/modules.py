@@ -1,6 +1,7 @@
 import logging
 import sys
 from math import sqrt
+
 # TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 
@@ -12,6 +13,9 @@ def imp_sys():
 
     logger.info('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
     return sys.path
+
+
+print(imp_sys())
 
 
 def simple_or_not(n):
