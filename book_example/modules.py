@@ -15,9 +15,6 @@ def imp_sys():
     return sys.path
 
 
-print(imp_sys())
-
-
 def simple_or_not(n):
     p = [2, 3]
     count = 2
