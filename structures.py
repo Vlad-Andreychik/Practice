@@ -3,6 +3,7 @@ import logging
 # TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
 # TODO[vandreychyk 15.10.2020]: заменил
 # TODO[agorozhanko 16.10.2020]: вижу функцию print
+# TODO[vandreychyk 16.10.2020]: заменил
 logger = logging.getLogger(__name__)
 
 
@@ -13,7 +14,7 @@ def shop():
 
     logger.info('Покупки: ', end=' ')
     for item in shop_list:
-        print(item, end=' ')
+        logger.info(item, end=' ')
 
     logger.info('\nТакже нужно купить риса.')
     shop_list.append('рис')
@@ -93,7 +94,7 @@ def seq():
 
 
 def reference():
-    print('Простое присваивание')
+    logger.info('Простое присваивание')
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
     my_list = shop_list
 
