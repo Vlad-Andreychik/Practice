@@ -19,8 +19,8 @@ def imp_sys():
     for i in sys.argv:
         logger.info(i)
 
-    logger.info('\n\nПеременная PYTHONPATH содержит', sys.path, '\n')
-    return sys.path
+    logger.info('Переменная PYTHONPATH содержит %s' % sys.path)
+    return sys.argv
 
 
 def simple_or_not(n):
