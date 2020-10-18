@@ -1,6 +1,3 @@
-import logging
-import logging.config
-
 import modules
 
 
@@ -24,17 +21,3 @@ def test_using_name():
 
 def test_say_hi():
     assert (modules.say_hi()) == 'Привет! Это говорит мой модуль.'
-
-
-def main():
-    logging.basicConfig(filename='log/test_modules_logs.txt',
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        level=logging.INFO)
-    logger = logging.getLogger('modules')
-
-    logger.info("Program started")
-    modules.using_name()
-    logger.info("Done!")
-
-
-main()

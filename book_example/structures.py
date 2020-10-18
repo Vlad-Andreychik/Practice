@@ -5,44 +5,52 @@ import logging
 # TODO[agorozhanko 16.10.2020]: вижу функцию print
 # TODO[vandreychyk 16.10.2020]: заменил
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('logs//structures.log', mode='w')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 def shop():
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
 
-    logger.info('Я должен сделать', len(shop_list), 'покупки: ')
+    logger.info('Я должен сделать %s покупки: ' % len(shop_list))
 
-    logger.info('Покупки: ', end=' ')
+    logger.info('Покупки: ')
     for item in shop_list:
-        logger.info(item, end=' ')
+        logger.info('%s' % item)
 
-    logger.info('\nТакже нужно купить риса.')
+    logger.info('Также нужно купить риса.')
     shop_list.append('рис')
-    logger.info('Теперь мой список покупок таков: ', shop_list)
+    logger.info('Теперь мой список покупок таков: %s' % shop_list)
 
     logger.info('Отсортирую-ка свой список')
     shop_list.sort()
-    logger.info('Отсортированный список покупок выглядит так: ', shop_list)
+    logger.info('Отсортированный список покупок выглядит так: %s' % shop_list)
 
-    logger.info('Первое, что мне нужно купить, это', shop_list[0])
+    logger.info('Первое, что мне нужно купить, это %s' % shop_list[0])
     old_item = shop_list[0]
     del shop_list[0]
-    logger.info('Я купил', old_item)
-    logger.info('Теперь мой список покупок: ', shop_list, '\n')
+    logger.info('Я купил %s' % old_item)
+    logger.info('Теперь мой список покупок: %s' % shop_list)
     return shop_list
 
 
 def using_tuple():
     zoo = ('питон', 'слон', 'пингвин')
-    logger.info('Количество животных в зоопарке - ', len(zoo))
+    logger.info('Количество животных в зоопарке - %s' % len(zoo))
 
     new_zoo = 'обезьяна', 'верблюд', zoo
-    logger.info('Количество клеток в зоопарке -', len(new_zoo))
-    logger.info('Все животные в новом зоопарке: ', new_zoo)
-    logger.info('Животные, привезенные из старого зоопарка: ', new_zoo[2])
-    logger.info('Последнее животное, привезенное из старого зоопарка - ', new_zoo[2][2])
-    logger.info('Количество животных в новом зоопарке - ', len(new_zoo) - 1 +
-                len(new_zoo[2]))
+    logger.info('Количество клеток в зоопарке - %s' % len(zoo))
+    logger.info('Все животные в новом зоопарке: %s%s%s' % new_zoo)
+    logger.info('Животные, привезенные из старого зоопарка: %s%s%s' % new_zoo[2])
+    logger.info('Последнее животное, привезенное из старого зоопарка - %s' % new_zoo[2][2])
+    logger.info('Количество животных в новом зоопарке - %s' % (len(new_zoo) - 1 +
+                                                               len(new_zoo[2])))
     return new_zoo
 
 
@@ -53,19 +61,19 @@ def using_dict():
           'Spammer': 'spammer@hotmail.com'
           }
 
-    logger.info("Адрес Swaroop'a: ", ab['Swaroop'])
+    logger.info("Адрес Swaroop'a: %s" % ab['Swaroop'])
 
     del ab['Spammer']
 
-    logger.info('\nВ адресной книге {0} контакта\n'.format(len(ab)))
+    logger.info('В адресной книге %s контакта' % len(ab))
 
     for name, address in ab.items():
-        logger.info('Контакт {0} с адресом {1}'.format(name, address))
+        logger.info('Контакт %s с адресом %s' % (name, address))
 
     ab['Guido'] = 'guido@python.org'
 
     if 'Guido' in ab:
-        logger.info('\nАдрес Guido: ', ab['Guido'])
+        logger.info('Адрес Guido: %s' % ab['Guido'])
     return ab
 
 
@@ -73,23 +81,23 @@ def seq():
     shop_list = ['яблоки', 'манго', 'морковь', 'бананы']
     name = 'swaroop'
 
-    logger.info('Элемент 0 -', shop_list[0])
-    logger.info('Элемент 1 -', shop_list[1])
-    logger.info('Элемент 2 -', shop_list[2])
-    logger.info('Элемент 3 -', shop_list[3])
-    logger.info('Элемент -1 -', shop_list[-1])
-    logger.info('Элемент -2 -', shop_list[-2])
-    logger.info('Символ 0 -', name[0])
+    logger.info('Элемент 0 - %s' % shop_list[0])
+    logger.info('Элемент 1 - %s' % shop_list[1])
+    logger.info('Элемент 2 - %s' % shop_list[2])
+    logger.info('Элемент 3 - %s' % shop_list[3])
+    logger.info('Элемент -1 - %s' % shop_list[-1])
+    logger.info('Элемент -2 - %s' % shop_list[-2])
+    logger.info('Символ 0 - %s' % name[0])
 
-    logger.info('Элементы с 1 по 3:', shop_list[1:3])
-    logger.info('Элементы с 2 до конца:', shop_list[2:])
-    logger.info('Элементы с 1 по -1:', shop_list[1:-1])
-    logger.info('Элементы от начала до конца:', shop_list[:])
+    logger.info('Элементы с 1 по 3: %s' % shop_list[1:3])
+    logger.info('Элементы с 2 до конца: %s' % shop_list[2:])
+    logger.info('Элементы с 1 по -1: %s' % shop_list[1:-1])
+    logger.info('Элементы от начала до конца: %s' % shop_list[:])
 
-    logger.info('Символы с 1 по 3:', name[1:3])
-    logger.info('Символы с 2 до конца:', name[2:])
-    logger.info('Символы с 1 до -1:', name[1:-1])
-    logger.info('Символы от начала до конца:', name[:])
+    logger.info('Символы с 1 по 3: %s' % name[1:3])
+    logger.info('Символы с 2 до конца: %s' % name[2:])
+    logger.info('Символы с 1 до -1: %s' % name[1:-1])
+    logger.info('Символы от начала до конца: %s' % name[:])
     return shop_list
 
 
@@ -100,15 +108,15 @@ def reference():
 
     del shop_list[0]
 
-    logger.info('shoplist:', shop_list)
-    logger.info('mylist:', my_list)
+    logger.info('shop_list: %s' % shop_list)
+    logger.info('my_list: %s' % my_list)
 
     logger.info('Копирование при помощи полной вырезки')
     my_list = shop_list[:]
     del my_list[0]
 
-    logger.info('shoplist:', shop_list)
-    logger.info('mylist:', my_list)
+    logger.info('shop_list: %s' % shop_list)
+    logger.info('my_list: %s' % my_list)
     return my_list, shop_list
 
 

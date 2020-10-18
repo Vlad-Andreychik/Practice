@@ -3,6 +3,14 @@ import os
 import time
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('logs//tasks.log', mode='w')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 def backup_date_plus_time_file_name():

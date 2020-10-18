@@ -4,6 +4,14 @@ from math import sqrt
 
 # TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('logs//modules.log', mode='w')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 def imp_sys():
@@ -24,16 +32,16 @@ def simple_or_not(n):
         for i in range(2, a):
             if i <= sqrt(a):
                 if a % i == 0:
-                    logger.info(a, 'непростое')
+                    logger.info('%s простое' % a)
                     b = 1
                 else:
                     pass
         if b != 1:
-            logger.info(a, 'простое')
+            logger.info('%s простое' % a)
             p = p + [a]
         count += 1
         a += 2
-    logger.info(p)
+    logger.info('%s' % p)
     return p
 
 
