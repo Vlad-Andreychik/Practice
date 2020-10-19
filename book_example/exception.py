@@ -12,8 +12,6 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 15.10.2020]: заменил
 def try_except():
     try:
         text = input('Введите что-нибудь --> ')

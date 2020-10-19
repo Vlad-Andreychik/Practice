@@ -9,8 +9,6 @@ class TestFunctions(unittest.TestCase):
         assert (type(functions.sayHello())) == str
         assert (functions.sayHello()) == 'Привет, Мир!'
 
-    # TODO[agorozhanko 14.10.2020]: название нужно исправить
-    # TODO[vandreychyk 16.10.2020]: исправил
     def test_print_max(self):
         assert (functions.printMax(7, 8)) == 8
         assert (functions.printMax(8, 8)) == 8
@@ -33,8 +31,6 @@ class TestFunctions(unittest.TestCase):
         assert (functions.func_key(1, c=2, b=3)) == (1, 3, 2)
 
     def test_total(self):
-        # TODO[agorozhanko 14.10.2020]: название нужно исправить
-        # TODO[vandreychyk 16.10.2020]: исправил
         phone_book = {'jerry': 123, 'kok': 432}
         assert (functions.total(3, 5, 7, jerry=123, kok=432)) == (3, [5, 7], phone_book)
 
