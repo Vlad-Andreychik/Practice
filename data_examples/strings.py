@@ -25,14 +25,16 @@ def unrepeated_letters(text):
 
 
 def count_words(text):
-    text = text.split()
-    return len(text)
+    return len(text.split())
 
 
 def change_piece(text, old, new):
     i = text.find(old)
-    text = text[0:i] + new + text[i + len(old):]
-    return text
+    size = len(text)
+    word = text[0:i] + new
+    if i != -1 and i != size - 1:
+        word += text[i + len(old):]
+    return word
 
 
 def sum_numbers(text):
@@ -44,3 +46,11 @@ def sum_numbers(text):
         except ValueError:
             continue
     return num
+
+
+def reverse_words_positions(text):
+    return ' '.join(text.split()[::-1])
+
+
+def delete_spaces(text):
+    return ' '.join(text.strip(' ').split())
