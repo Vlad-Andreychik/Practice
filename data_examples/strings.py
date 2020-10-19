@@ -30,8 +30,11 @@ def count_words(text):
 
 def change_piece(text, old, new):
     i = text.find(old)
-    text = text[0:i] + new + text[i + len(old):]
-    return text
+    size = len(text)
+    word = text[0:i] + new
+    if i != -1 and i != size - 1:
+        word += text[i + len(old):]
+    return word
 
 
 def sum_numbers(text):
