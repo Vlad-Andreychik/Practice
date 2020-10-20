@@ -12,10 +12,12 @@ logger.addHandler(file_handler)
 
 
 def reverse(text):
+    """Возвращает обратную строку"""
     return text[::-1]
 
 
 def unrepeated_letters(text):
+    """Возвращает строку без повторения букв"""
     word = ''
     for i in text:
         letter = i
@@ -25,10 +27,14 @@ def unrepeated_letters(text):
 
 
 def count_words(text):
+    """Возвращает количество слов в строке"""
     return len(text.split())
 
 
 def change_piece(text, old, new):
+    """Замена куска строки.
+
+    Возвращает новую строку с замененным куском"""
     i = text.find(old)
     size = len(text)
     word = text[0:i] + new
@@ -38,6 +44,7 @@ def change_piece(text, old, new):
 
 
 def sum_numbers(text):
+    """Возвращает сумму чисел, находящихся в строке"""
     num = 0
     for number in text:
         try:
@@ -49,8 +56,11 @@ def sum_numbers(text):
 
 
 def reverse_words_positions(text):
+    """Возвращает строку с обратным порядком слов"""
     return ' '.join(text.split()[::-1])
 
 
 def delete_spaces(text):
+    """Удаление лишних пробелов в начале, в конце строки,
+     а также между словами"""
     return ' '.join(text.strip(' ').split())
