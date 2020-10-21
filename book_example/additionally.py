@@ -1,6 +1,4 @@
-# TODO[agorozhanko 14.10.2020]:нужно заменить print на logger
-# TODO[vandreychyk 14.10.2020]: print на logger заменил
-# TODO[agorozhanko 19.10.2020]: не заменил
+# TODO[agorozhanko 21.10.2020]: print-ы всё ещё не убраны
 import logging
 
 logger = logging.getLogger(__name__)

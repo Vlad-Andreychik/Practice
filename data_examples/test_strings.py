@@ -1,6 +1,11 @@
 from data_examples import strings
 
 
+# TODO[agorozhanko 21.10.2020]: что будет если ввести непроинициализированую строку (это относится ко всем тестам)?
+# TODO[agorozhanko 21.10.2020]: что будет если ввести спец символы (это относится ко всем тестам)?
+# TODO[agorozhanko 21.10.2020]: что будет если ввести строку состоящую только из пробелов (это относится ко всем тестам)?
+
+
 def test_reverse_word():
     """Проверка слова"""
     assert (strings.reverse('text')) == 'txet'
@@ -36,6 +41,7 @@ def test_count_words_empty_string():
     assert (strings.count_words('')) == 0
 
 
+# TODO[agorozhanko 21.10.2020]: что будет если ввести строку с лишними пробелами в всех частях предложения
 def test_count_words_sentence_without_numbers():
     """Проверка предложения"""
     assert (strings.count_words('Hello world')) == 2
@@ -57,10 +63,12 @@ def test_change_piece_not_existing_old_piece():
 
 
 def test_change_piece_normal_input():
+    # TODO[agorozhanko 21.10.2020]: опечатка
     """Проверка с существующим заменямым куском"""
     assert (strings.change_piece('application', 'appli', 'californi')) == 'californication'
 
 
+# TODO[agorozhanko 21.10.2020]: что будет если ввести отрицательные числа или 0
 def test_sum_numbers_digits_only():
     """Проверка строки только из цифр"""
     assert (strings.sum_numbers('45')) == 9
@@ -81,6 +89,7 @@ def test_reverse_words_positions_one_word():
     assert (strings.reverse_words_positions('word')) == 'word'
 
 
+# TODO[agorozhanko 21.10.2020]: что будет если ввести строку с лишними пробелами в всех частях предложения
 def test_reverse_words_positions_sentence():
     """Проверка на предложении"""
     assert (strings.reverse_words_positions('Hello world')) == 'world Hello'

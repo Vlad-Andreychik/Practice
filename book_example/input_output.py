@@ -1,12 +1,11 @@
 import logging
 import pickle
 
-# TODO[agorozhanko 16.10.2020]: логер работает?
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
-
+# TODO[agorozhanko 21.10.2020]: не правильное рассширение у файла лога
 file_handler = logging.FileHandler('logs//input_output.logs', mode='w')
 file_handler.setFormatter(formatter)
 
@@ -48,6 +47,7 @@ def using_file():
     return poem, line
 
 
+# TODO[agorozhanko 21.10.2020]: где тест?
 def pickling():
     shop_list_file = 'shop_list.data'
     shop_list = ['яблоки', 'манго', 'морковь']

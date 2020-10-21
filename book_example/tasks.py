@@ -6,13 +6,14 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
-
+# TODO[agorozhanko 21.10.2020]: не правильное рассширение у файла лога
 file_handler = logging.FileHandler('logs//tasks.logs', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
 
+# TODO[agorozhanko 21.10.2020]:всё ещё используются абсолютные пути
 def backup_date_plus_time_file_name():
     source = ['C:\\Users', 'G:\\kyrs']
 

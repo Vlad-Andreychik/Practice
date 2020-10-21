@@ -1,7 +1,5 @@
 import logging
 
-# TODO[agorozhanko 16.10.2020]: логер работает?
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
