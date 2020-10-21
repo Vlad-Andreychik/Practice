@@ -13,11 +13,14 @@ def count_it(digits):
 def max_dct(first_dict, second_dict):
     """Дано два словаря.
 
-    Возвращает третий по правилу:
-    если в исходных словарях есть повторяющиеся ключи,
+    Создает третий словарь по правилу:
+    Если в исходных словарях есть повторяющиеся ключи,
     выбираем среди двух с большим значением.
     Если ключ не повторяется,
-    то просто переносим со своим значением в новый словарь."""
+    то просто переносим со своим значением в новый словарь.
+
+    Возвращает словарь
+    """
     third_dict = {}
     for first_key in list(first_dict.keys()):
         for second_key in list(second_dict.keys()):
@@ -36,21 +39,28 @@ def max_dct(first_dict, second_dict):
 
 
 def three_max_keys(dictionary):
-    """Возвращает три ключа с самыми высокими значениями"""
+    """Принимает словарь
+
+    Сортирует его по значениям по убыванию
+
+    Возвращает словарь с первыми тремя ключами отсортированного словаря"""
     list_dict = list(dictionary.items())
     list_dict.sort(key=lambda elem: elem[1], reverse=True)
     return dict(list_dict[:3])
 
 
-def my_print(d):
+def my_print(dictionary):
     """Дан словарь.
+
     Необходимо сделать этот словарь "плоским",
     но сохранить структуру в ключах.
     Результатом будет словарь без вложенных словарей.
     Ключи должны содержать путь,
     составленный из родительских ключей из начального словаря,
-    разделенных "/"."""
-    for k, v in d.items():
+    разделенных "/".
+
+    Возвращает словарь"""
+    for k, v in dictionary.items():
         if isinstance(v, dict):
             keys.append(k)
             my_print(v)
@@ -61,10 +71,11 @@ def my_print(d):
     return new_dict
 
 
-def multiple_values(d):
+def multiple_values(dictionary):
     """Дан словарь со значениями в виде чисел.
+
     Возвращает произведение значений"""
     result = 1
-    for key in d:
-        result *= d[key]
+    for key in dictionary:
+        result *= dictionary[key]
     return result

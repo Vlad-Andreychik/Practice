@@ -55,23 +55,23 @@ def sum_numbers(text):
     """Принимает строку
 
     Возвращает сумму чисел, находящихся в строке"""
+    # Суммирую все цифры
     num = 0
     for number in text:
         if number.isdigit():
             num += int(number)
-    print(num)
+    # Создаю из строки список по разделителю '-'.
+    # Первая цифра любого элемента списка, кроме первого, - отрицательное число
     text_split = text.split('-')
-    print(text_split)
     try:
         if text_split[0][0].isdigit():
-            print(text_split[0][0])
             del text_split[0]
     except IndexError:
         pass
+    # Отнимаю удвоенное значение цифры, так как до этого я эту же цифру прибавлял
     for i in text_split:
         try:
             if i[0].isdigit():
-                print(i[0])
                 num -= int(i[0]) * 2
         except IndexError:
             continue
