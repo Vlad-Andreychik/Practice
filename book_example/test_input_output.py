@@ -1,4 +1,4 @@
-import input_output
+from book_example import input_output
 
 
 def test_using_file():

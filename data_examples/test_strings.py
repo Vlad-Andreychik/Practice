@@ -1,4 +1,4 @@
-import strings
+from data_examples import strings
 
 
 def test_reverse_word():

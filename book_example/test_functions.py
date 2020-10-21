@@ -1,6 +1,6 @@
 import unittest
 
-import functions
+from book_example import functions
 
 
 class TestFunctions(unittest.TestCase):

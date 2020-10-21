@@ -1,4 +1,4 @@
-import conditions
+from book_example import conditions
 
 
 # TODO[agorozhanko 16.10.2020]: тест падает

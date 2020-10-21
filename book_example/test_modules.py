@@ -1,4 +1,4 @@
-import modules
+from book_example import modules
 
 
 def test_imp_sys():

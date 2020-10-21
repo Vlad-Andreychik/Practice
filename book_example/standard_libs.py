@@ -9,7 +9,7 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
 
-file_handler = logging.FileHandler('logs//standard_libs.log', mode='w')
+file_handler = logging.FileHandler('logs//standard_libs.logs', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -34,9 +34,9 @@ def use_logging():
     if platform.platform().startswith('Windows'):
         logging_file = os.path.join(os.getenv('HOMEDRIVE'),
                                     os.getenv('HOMEPATH'),
-                                    'test.log')
+                                    'test.logs')
     else:
-        logging_file = os.path.join(os.getenv('HOME'), 'test.log')
+        logging_file = os.path.join(os.getenv('HOME'), 'test.logs')
     print("Сохраняем лог в", logging_file)
     logging.basicConfig(
         level=logging.DEBUG,
