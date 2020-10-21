@@ -23,7 +23,7 @@ def version_check():
     версия Python 3.0",
                       RuntimeWarning)
     else:
-        print('Нормальное продолжение')
+        logging.info('Нормальное продолжение')
 
 
 version_check()
@@ -36,7 +36,7 @@ def use_logging():
                                     'test.logs')
     else:
         logging_file = os.path.join(os.getenv('HOME'), 'test.logs')
-    print("Сохраняем лог в", logging_file)
+    logging.info("Сохраняем лог в", logging_file)
     logging.basicConfig(
         level=logging.DEBUG,
         format='%(asctime)s : %(levelname)s : %(message)s',

@@ -38,6 +38,6 @@ def power_sum(power, *args):
 def using_assert():
     my_list = ['item']
     assert len(my_list) >= 1
-    print(my_list.pop())
-    print(my_list)
+    logger.info(my_list.pop())
+    logger.info(my_list)
     assert len(my_list) >= 1
