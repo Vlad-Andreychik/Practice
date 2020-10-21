@@ -1,6 +1,6 @@
 import os
 
-import module
+from book_example import module
 
 
 def test_imp_sys():

@@ -1,4 +1,4 @@
-import dicts
+from data_examples import dicts
 
 
 def test_count_it_empty():

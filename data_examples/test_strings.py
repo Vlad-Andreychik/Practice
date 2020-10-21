@@ -1,4 +1,4 @@
-import strings
+from data_examples import strings
 
 
 # TODO[agorozhanko 21.10.2020]: что будет если ввести непроинициализированую строку (это относится ко всем тестам)?

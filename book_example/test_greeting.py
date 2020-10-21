@@ -1,4 +1,4 @@
-import greeting
+from book_example import greeting
 
 
 def test_greeting():
