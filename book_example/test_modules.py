@@ -1,3 +1,5 @@
+import os
+
 from book_example import modules
 
 
@@ -6,7 +8,9 @@ def test_imp_sys():
     # TODO[vandreychyk 15.10.2020]:удалил эту проверку
     # TODO[agorozhanko 16.10.2020]:проблемы в плохом коде нужно решать хорошим кодом а не его удалением
     # TODO[agorozhanko 21.10.2020]: когда замечания выше будут исправлены?
-    assert (len(modules.imp_sys())) == 2
+    cur_dir = os.path.abspath(os.curdir)
+    assert cur_dir in modules.imp_sys()[1]
+    assert (len(modules.imp_sys()[0])) != 0
 
 
 def test_simple_or_not():
@@ -15,6 +19,7 @@ def test_simple_or_not():
 
 
 # TODO[agorozhanko 21.10.2020]: тест падает
+# TODO[vandreychyk 21.10.2020]: должен нормально заработать как только я правильно venv настрою
 def test_using_name():
     assert (modules.using_name()) == 'modules'
 

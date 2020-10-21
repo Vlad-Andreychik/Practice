@@ -9,14 +9,14 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
 # TODO[agorozhanko 21.10.2020]: не правильное рассширение у файла лога
-file_handler = logging.FileHandler('logs//standard_libs.logs', mode='w')
+file_handler = logging.FileHandler('..//logs//standard_libs.logs', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
 
 # TODO[agorozhanko 21.10.2020]: print-ы всё ещё не убраны
-
+# TODO[vandreychyk 21.10.2020]: print-ы убрал
 def version_check():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \

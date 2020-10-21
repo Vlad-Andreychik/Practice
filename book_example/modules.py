@@ -7,7 +7,7 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
 # TODO[agorozhanko 21.10.2020]: не правильное рассширение у файла лога
-file_handler = logging.FileHandler('logs//modules.logs', mode='w')
+file_handler = logging.FileHandler('..//logs//modules.logs', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -19,7 +19,7 @@ def imp_sys():
         logger.info(i)
 
     logger.info('Переменная PYTHONPATH содержит %s' % sys.path)
-    return sys.argv
+    return sys.argv, sys.path
 
 
 def simple_or_not(n):
@@ -57,3 +57,4 @@ def say_hi():
 
 
 __version__ = '0.1'
+print(imp_sys())
