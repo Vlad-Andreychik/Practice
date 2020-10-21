@@ -1,4 +1,4 @@
-from book_example import conditions
+import conditions
 
 
 def test_using_for():

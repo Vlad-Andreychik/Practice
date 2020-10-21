@@ -1,4 +1,4 @@
-from book_example import structures
+import structures
 
 
 def test_shop():
