@@ -1,6 +1,6 @@
 import logging
 
-from data_examples import strings
+from algorithms import strings
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -24,10 +24,7 @@ def test_reverse_word():
 
 def test_reverse_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    try:
-        assert (strings.reverse(5)) is None
-    except NameError:
-        logger.error('Ошибка ввода')
+    assert (strings.reverse(a)) is None
 
 
 def test_reverse_special_symbols():
@@ -62,7 +59,7 @@ def test_unrepeated_letters_special_symbols():
 
 def test_unrepeated_letters_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.unrepeated_letters('')) == ''
+    assert (strings.unrepeated_letters(a)) is None
 
 
 def test_unrepeated_letters_only_spaces():
@@ -87,7 +84,7 @@ def test_count_words_empty_string():
 
 def test_count_words_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.count_words('')) == 0
+    assert (strings.count_words(a)) is None
 
 
 # TODO[agorozhanko 22.10.2020]: являются ли спецсимволы, в частности знаки препинания словами?
@@ -124,7 +121,7 @@ def test_change_piece_empty_new_piece():
 
 def test_change_piece_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.change_piece('', 'h', 'tok')) == 'tok'
+    assert (strings.change_piece(a, 'h', 'tok')) is None
 
 
 def test_change_piece_special_symbols():
@@ -164,7 +161,7 @@ def test_sum_numbers_digits_only():
 
 def test_sum_numbers_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.sum_numbers('')) == 0
+    assert (strings.sum_numbers(a)) is None
 
 
 def test_sum_numbers_special_symbols():
@@ -194,7 +191,7 @@ def test_reverse_words_positions_one_word():
 
 def test_reverse_words_positions_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.reverse_words_positions('')) == ''
+    assert (strings.reverse_words_positions(a)) is None
 
 
 def test_reverse_words_positions_special_symbols():
@@ -229,7 +226,7 @@ def test_delete_spaces_in_the_start():
 
 def test_delete_spaces_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.delete_spaces('')) == ''
+    assert (strings.delete_spaces(a)) is None
 
 
 def test_delete_spaces_special_symbols():
