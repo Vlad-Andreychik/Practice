@@ -1,4 +1,16 @@
+import logging
+
 from data_examples import strings
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('..//logs//string.log', mode='w')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 # TODO[agorozhanko 21.10.2020]: что будет если ввести непроинициализированую строку (это относится ко всем тестам)?
@@ -12,7 +24,10 @@ def test_reverse_word():
 
 def test_reverse_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.reverse('')) == ''
+    try:
+        assert (strings.reverse(5)) is None
+    except NameError:
+        logger.error('Ошибка ввода')
 
 
 def test_reverse_special_symbols():
@@ -76,6 +91,7 @@ def test_count_words_uninitialized_string():
 
 
 # TODO[agorozhanko 22.10.2020]: являются ли спецсимволы, в частности знаки препинания словами?
+# TODO[vandreychyk 22.10.2020]: добавил в функцию проверку на спецсимволы
 def test_count_words_special_symbols():
     """Проверка специальных символов"""
     assert (strings.count_words('%$(/*-!')) == 1

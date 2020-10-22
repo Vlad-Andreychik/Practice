@@ -17,7 +17,7 @@ def test_simple_or_not():
 # TODO[agorozhanko 21.10.2020]: тест падает
 # TODO[vandreychyk 21.10.2020]: должен нормально заработать как только я правильно venv настрою
 def test_using_name():
-    assert (module.using_name()) == 'modules'
+    assert (module.using_name()) == 'module'
 
 
 def test_say_hi():

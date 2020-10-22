@@ -7,7 +7,8 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
 # TODO[agorozhanko 21.10.2020]: не правильное рассширение у файла лога
-file_handler = logging.FileHandler('..//logs//modules.logs', mode='w')
+# TODO[vandreychyk 22.10.2020]: исправил
+file_handler = logging.FileHandler('..//logs//modules.log', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -58,4 +59,4 @@ def say_hi():
 
 __version__ = '0.1'
 # TODO[agorozhanko 22.10.2020]: это что?
-print(imp_sys())
+# TODO[vandreychyk 22.10.2020]: проверял работу этой функции и не убрал эту строку. Убрал

@@ -5,17 +5,25 @@ logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
 
-file_handler = logging.FileHandler('..//logs//string.logs', mode='w')
+file_handler = logging.FileHandler('..//logs//string.log', mode='w')
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
 
 def reverse(text):
-    """Принимает строку
+    """
 
-    Возвращает обратную строку"""
-    return text[::-1]
+    :param text: Строка
+    :type text: С
+    :return:
+    :rtype:
+    """
+    try:
+        return text[::-1]
+    except TypeError:
+        logger.error('Ошибка ввода')
+
 
 
 def unrepeated_letters(text):
@@ -34,7 +42,10 @@ def count_words(text):
     """Принимает строку
 
     Возвращает количество слов в строке"""
-    return len(text.split())
+    if text.isspace():
+        return 0
+    else:
+        return len(text.split())
 
 
 def change_piece(text, old, new):
