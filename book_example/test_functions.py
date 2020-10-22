@@ -43,7 +43,5 @@ class TestFunctions(unittest.TestCase):
         assert (functions.printMax(8, 8)) == 8
         assert (functions.printMax(9, 8)) == 9
 
-    # TODO[agorozhanko 16.10.2020]: тест падает
-    # TODO[vandreychyk 16.10.2020]: исправил
     def test_desc(self):
         assert (type(functions.print_max_desc.__doc__)) == str

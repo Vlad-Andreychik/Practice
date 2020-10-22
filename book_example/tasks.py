@@ -13,8 +13,6 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-# TODO[agorozhanko 21.10.2020]:всё ещё используются абсолютные пути
-# TODO[vandreychyk 21.10.2020]: сделал относительные
 def backup_date_plus_time_file_name():
     source = ['%cd%']
 

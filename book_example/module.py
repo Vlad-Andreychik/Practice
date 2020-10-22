@@ -57,4 +57,5 @@ def say_hi():
 
 
 __version__ = '0.1'
+# TODO[agorozhanko 22.10.2020]: это что?
 print(imp_sys())

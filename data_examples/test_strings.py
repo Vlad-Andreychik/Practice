@@ -2,9 +2,8 @@ from data_examples import strings
 
 
 # TODO[agorozhanko 21.10.2020]: что будет если ввести непроинициализированую строку (это относится ко всем тестам)?
-# TODO[agorozhanko 21.10.2020]: что будет если ввести спец символы (это относится ко всем тестам)?
-# TODO[agorozhanko 21.10.2020]: что будет если ввести строку состоящую только из пробелов (это относится ко всем тестам)?
 # TODO[vandreychyk 21.10.2020]: сделал все эти проверки ко всем примерам
+# TODO[agorozhanko 22.10.2020]: не все проверки сделал
 
 def test_reverse_word():
     """Проверка слова"""
@@ -76,6 +75,7 @@ def test_count_words_uninitialized_string():
     assert (strings.count_words('')) == 0
 
 
+# TODO[agorozhanko 22.10.2020]: являются ли спецсимволы, в частности знаки препинания словами?
 def test_count_words_special_symbols():
     """Проверка специальных символов"""
     assert (strings.count_words('%$(/*-!')) == 1
@@ -86,8 +86,6 @@ def test_count_words_only_spaces():
     assert (strings.count_words('     ')) == 0
 
 
-# TODO[agorozhanko 21.10.2020]: что будет если ввести строку с лишними пробелами в всех частях предложения
-# TODO[vandreychyk 21.10.2020]: сделал эту проверку
 def test_count_words_unnecessary_spaces():
     """Проверка строки с лишними пробелами"""
     assert (strings.count_words('    Hello    world    ')) == 2
@@ -129,14 +127,10 @@ def test_change_piece_not_existing_old_piece():
 
 
 def test_change_piece_normal_input():
-    # TODO[agorozhanko 21.10.2020]: опечатка
-    # TODO[vandreychyk 21.10.2020]: исправил
     """Проверка с существующим заменяемым куском"""
     assert (strings.change_piece('application', 'appli', 'californi')) == 'californication'
 
 
-# TODO[agorozhanko 21.10.2020]: что будет если ввести отрицательные числа или 0
-# TODO[vandreychyk 21.10.2020]: сделал эту проверку
 def test_sum_numbers_negative_numbers():
     """Проверка на отрицательные числа"""
     assert (strings.sum_numbers('-5-7-8')) == -20
@@ -197,8 +191,6 @@ def test_reverse_words_positions_only_spaces():
     assert (strings.reverse_words_positions('     ')) == ''
 
 
-# TODO[agorozhanko 21.10.2020]: что будет если ввести строку с лишними пробелами в всех частях предложения
-# TODO[vandreychyk 21.10.2020]: сделал эту проверку
 def test_reverse_words_positions_sentence_with_unnecessary_spaces():
     """Проверка на предложении с лишними пробелами в всех частях предложения"""
     assert (strings.reverse_words_positions('   Hello   world   ')) == 'world Hello'

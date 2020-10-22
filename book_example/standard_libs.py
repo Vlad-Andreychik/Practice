@@ -15,8 +15,6 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-# TODO[agorozhanko 21.10.2020]: print-ы всё ещё не убраны
-# TODO[vandreychyk 21.10.2020]: print-ы убрал
 def version_check():
     if sys.version_info[0] < 3:
         warnings.warn("Для выполнения этой программы необходима как минимум \
