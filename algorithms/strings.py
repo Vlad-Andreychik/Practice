@@ -13,11 +13,11 @@ logger.addHandler(file_handler)
 
 def reverse(text):
     """
-
-    :param text: Строка
-    :type text: С
-    :return:
-    :rtype:
+    Возвращает перевернутую строку
+    :param text: строка
+    :type text: str
+    :return: перевернутая строка
+    :rtype: str
     """
     try:
         return text[::-1]
@@ -25,11 +25,15 @@ def reverse(text):
         logger.error('Ошибка ввода')
 
 
-
 def unrepeated_letters(text):
     """Принимает строку
 
-    Возвращает строку без повторения букв"""
+    Возвращает строку без повторения символов
+    :param text: строка
+    :type text: str
+    :return: строка без повторения символов
+    :rtype: str
+    """
     word = ''
     for i in text:
         letter = i
@@ -41,7 +45,12 @@ def unrepeated_letters(text):
 def count_words(text):
     """Принимает строку
 
-    Возвращает количество слов в строке"""
+    Возвращает количество слов в строке
+    :param text: строка
+    :type text: str
+    :return: число слов в строке
+    :rtype: int
+    """
     if text.isspace():
         return 0
     else:
@@ -53,7 +62,16 @@ def change_piece(text, old, new):
 
     Замена старого куска строки на новый.
 
-    Возвращает новую строку"""
+    Возвращает новую строку
+    :param text: строка
+    :type text: str
+    :param old: заменяемый кусок
+    :type old: str
+    :param new: новый кусок
+    :type new: str
+    :return: новая строка
+    :rtype: str
+     """
     i = text.find(old)
     size = len(text)
     word = text[0:i] + new
@@ -65,7 +83,12 @@ def change_piece(text, old, new):
 def sum_numbers(text):
     """Принимает строку
 
-    Возвращает сумму чисел, находящихся в строке"""
+    Возвращает сумму чисел, находящихся в строке
+    :param text: строка
+    :type text: str
+    :return: сумма чисел
+    :rtype: int
+    """
     # Суммирую все цифры
     num = 0
     for number in text:
@@ -92,7 +115,12 @@ def sum_numbers(text):
 def reverse_words_positions(text):
     """Принимает строку
 
-    Возвращает строку с обратным порядком слов"""
+    Возвращает строку с обратным порядком слов
+    :param text: строка
+    :type text: str
+    :return: строка с обратным порядком слов
+    :rtype: str
+    """
     return ' '.join(text.split()[::-1])
 
 
@@ -102,5 +130,10 @@ def delete_spaces(text):
     Удаление лишних пробелов в начале, в конце строки,
      а также между словами
 
-     Возвращает строку"""
+     Возвращает строку
+     :param text: строка
+     :type text: str
+     :return: строка без лишних пробелов
+     :rtype: str
+     """
     return ' '.join(text.strip(' ').split())
