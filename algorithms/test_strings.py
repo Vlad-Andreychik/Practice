@@ -1,5 +1,6 @@
 import logging
 
+import pytest
 from algorithms import strings
 
 logger = logging.getLogger(__name__)
@@ -12,10 +13,12 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
-
 # TODO[agorozhanko 21.10.2020]: что будет если ввести непроинициализированую строку (это относится ко всем тестам)?
 # TODO[vandreychyk 21.10.2020]: сделал все эти проверки ко всем примерам
 # TODO[agorozhanko 22.10.2020]: не все проверки сделал
+
+a = None
+
 
 def test_reverse_word():
     """Проверка слова"""
@@ -24,7 +27,8 @@ def test_reverse_word():
 
 def test_reverse_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.reverse(a)) is None
+    with pytest.raises(Exception):
+        strings.reverse(a)
 
 
 def test_reverse_special_symbols():
@@ -59,7 +63,8 @@ def test_unrepeated_letters_special_symbols():
 
 def test_unrepeated_letters_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.unrepeated_letters(a)) is None
+    with pytest.raises(Exception):
+        strings.unrepeated_letters(a)
 
 
 def test_unrepeated_letters_only_spaces():
@@ -84,7 +89,8 @@ def test_count_words_empty_string():
 
 def test_count_words_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.count_words(a)) is None
+    with pytest.raises(Exception):
+        strings.count_words(a)
 
 
 # TODO[agorozhanko 22.10.2020]: являются ли спецсимволы, в частности знаки препинания словами?
@@ -121,7 +127,8 @@ def test_change_piece_empty_new_piece():
 
 def test_change_piece_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.change_piece(a, 'h', 'tok')) is None
+    with pytest.raises(Exception):
+        strings.change_piece(a)
 
 
 def test_change_piece_special_symbols():
@@ -161,7 +168,8 @@ def test_sum_numbers_digits_only():
 
 def test_sum_numbers_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.sum_numbers(a)) is None
+    with pytest.raises(Exception):
+        strings.sum_numbers(a)
 
 
 def test_sum_numbers_special_symbols():
@@ -191,7 +199,8 @@ def test_reverse_words_positions_one_word():
 
 def test_reverse_words_positions_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.reverse_words_positions(a)) is None
+    with pytest.raises(Exception):
+        strings.reverse_words_positions(a)
 
 
 def test_reverse_words_positions_special_symbols():
@@ -226,7 +235,8 @@ def test_delete_spaces_in_the_start():
 
 def test_delete_spaces_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    assert (strings.delete_spaces(a)) is None
+    with pytest.raises(Exception):
+        strings.delete_spaces(a)
 
 
 def test_delete_spaces_special_symbols():
