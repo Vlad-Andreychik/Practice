@@ -21,17 +21,17 @@ def above_average(tupl):
     :return: кортеж
     :rtype: tuple
     """
-    average = 0
-    list_above_average = []
-    try:
+    if len(tupl) > 0:
+        average = 0
+        list_above_average = []
         for i in tupl:
             average += int(i.split()[1])
         for i in tupl:
             if int(i.split()[1]) > average / len(tupl):
                 list_above_average.append(i)
-    except IndexError:
-        logger.warning('Неправильный ввод')
-    return tuple(list_above_average)
+        return tuple(list_above_average)
+    else:
+        raise IndexError('Введен пустой кортеж')
 
 
 def union_tuples(first_tuple, second_tuple):
@@ -46,14 +46,13 @@ def union_tuples(first_tuple, second_tuple):
     :return: кортеж
     :rtype: tuple
     """
-    new_tuple = []
-    try:
+    if len(first_tuple) > 0 and len(second_tuple) > 0:
         list_first_tuple = list(first_tuple)
         list_second_tuple = list(second_tuple)
         new_tuple = list_first_tuple + list_second_tuple
-    except IndexError:
-        logger.warning('Неправильный ввод')
-    return tuple(new_tuple), new_tuple.count(0)
+        return tuple(new_tuple), new_tuple.count(0)
+    else:
+        raise IndexError('Введен пустой кортеж')
 
 
 def slicer(tupl, element):
@@ -70,7 +69,9 @@ def slicer(tupl, element):
     :return: кортеж
     :rtype:tuple
     """
-    try:
+    if not isinstance(tupl, tuple):
+        raise TypeError('Введен не кортеж')
+    if len(tupl) > 0:
         if tupl.count(element) > 1:
             tupl_1 = tupl[tupl.index(element) + 1:]
             return tupl[tupl.index(element):tupl.index(element) + tupl_1.index(element) + 2]
@@ -78,10 +79,8 @@ def slicer(tupl, element):
             return tupl[tupl.index(element):]
         else:
             return ()
-    except ValueError:
-        logger.warning('Неправильный ввод')
-    except TypeError:
-        logger.warning('Неправильный ввод')
+    else:
+        raise IndexError('Введен пустой кортеж')
 
 
 def sieve(list_of_integers):
@@ -95,14 +94,16 @@ def sieve(list_of_integers):
     :return: кортеж
     :rtype: tuple
     """
-    try:
-        for i in list_of_integers:
-            if not isinstance(i, int):
-                raise ValueError
-        set_of_list = set(list_of_integers)
-        return tuple(sorted(set_of_list))
-    except (ValueError, TypeError):
-        logger.warning('Неправильный ввод')
+    if not isinstance(list_of_integers, list):
+        raise TypeError('Введен не список')
+    for elem in list_of_integers:
+        if not isinstance(elem, int):
+            raise TypeError('Введен список с неправильным типом данных.(Требуется int)')
+    for i in list_of_integers:
+        if not isinstance(i, int):
+            raise ValueError
+    set_of_list = set(list_of_integers)
+    return tuple(sorted(set_of_list))
 
 
 def del_from_tuple(tupl, element):
@@ -118,11 +119,13 @@ def del_from_tuple(tupl, element):
      :return: кортеж
      :rtype: tuple
      """
-    try:
+    if not isinstance(tupl, tuple):
+        raise TypeError('Введен не кортеж')
+    if len(tupl) > 0:
         if element not in tupl:
             return tupl
         list_of_tuple = list(tupl)
         list_of_tuple.remove(element)
         return tuple(list_of_tuple)
-    except (ValueError, TypeError):
-        logger.warning('Неправильный ввод')
+    else:
+        raise IndexError('Введен пустой кортеж')

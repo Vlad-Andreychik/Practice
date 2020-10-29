@@ -1,8 +1,10 @@
+import pytest
 from algorithms import tuples
 
 
 def test_slicer_without_element():
     """Проверка кортежа и элемента, невходящего в этот кортеж"""
+
     assert (tuples.slicer((1, 2, 4, 5, 6, 7, 8, 4), 3)) == ()
 
 
@@ -43,17 +45,20 @@ def test_sieve_repeated_integers():
 
 def test_sieve_diff_types_in_list():
     """Проверка списка с элементами разных типов"""
-    assert (tuples.sieve(['a', 3, 'c', True, 4, 'f', 'c', 'd', 'e'])) is None
+    with pytest.raises(TypeError):
+        assert (tuples.sieve(['a', 3, 'c', True, 4, 'f', 'c', 'd', 'e']))
 
 
 def test_sieve_other_type():
     """Проверка ввода иного типа данных"""
-    assert (tuples.sieve(4)) is None
+    with pytest.raises(TypeError):
+        assert (tuples.sieve(4))
 
 
 def test_sieve_float():
     """Проверка ввода списка с элементами типа чисел с плавающей точкой"""
-    assert (tuples.sieve([1.5, 1.4, 2.0, 2.7, 4.4, 4.3])) is None
+    with pytest.raises(TypeError):
+        assert (tuples.sieve([1.5, 1.4, 2.0, 2.7, 4.4, 4.3]))
 
 
 def test_del_from_tuple_with_one_element():
@@ -75,5 +80,3 @@ def test_del_from_tuple_with_diff_types():
     """Проверка кортежа с элементами разных типов данных"""
     assert (tuples.del_from_tuple(('a', 3, 'c', True, 4, 'f', 'c', 'd', 'e'), 'c')) == (
         'a', 3, True, 4, 'f', 'c', 'd', 'e')
-
-

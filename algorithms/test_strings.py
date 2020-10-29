@@ -27,7 +27,7 @@ def test_reverse_word():
 
 def test_reverse_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.reverse(a)
 
 
@@ -63,7 +63,7 @@ def test_unrepeated_letters_special_symbols():
 
 def test_unrepeated_letters_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.unrepeated_letters(a)
 
 
@@ -89,7 +89,7 @@ def test_count_words_empty_string():
 
 def test_count_words_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.count_words(a)
 
 
@@ -127,7 +127,7 @@ def test_change_piece_empty_new_piece():
 
 def test_change_piece_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.change_piece(a)
 
 
@@ -168,7 +168,7 @@ def test_sum_numbers_digits_only():
 
 def test_sum_numbers_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.sum_numbers(a)
 
 
@@ -199,7 +199,7 @@ def test_reverse_words_positions_one_word():
 
 def test_reverse_words_positions_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.reverse_words_positions(a)
 
 
@@ -235,7 +235,7 @@ def test_delete_spaces_in_the_start():
 
 def test_delete_spaces_uninitialized_string():
     """Проверка непроинициализированой строки"""
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         strings.delete_spaces(a)
 
 

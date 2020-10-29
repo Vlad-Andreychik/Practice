@@ -1,14 +1,17 @@
+import pytest
 from algorithms import arrays
 
 
 def test_max_even_elem_empty():
     """Проверка пустого ввода"""
-    assert (arrays.max_even_elem([])) is None
+    with pytest.raises(IndexError):
+        assert (arrays.max_even_elem([]))
 
 
 def test_max_even_elem_diff_types():
     """Проверка ввода элементов разного типа"""
-    assert (arrays.max_even_elem([3, True, 'a', 5])) is None
+    with pytest.raises(TypeError):
+        assert (arrays.max_even_elem([3, True, 'a', 5]))
 
 
 def test_max_even_elem_positive_numbers():
@@ -33,7 +36,8 @@ def test_max_even_elem_equal_numbers():
 
 def test_swap_max_and_min_empty():
     """Проверка пустого ввода"""
-    assert (arrays.swap_max_and_min([])) is None
+    with pytest.raises(IndexError):
+        assert (arrays.swap_max_and_min([]))
 
 
 def test_swap_max_and_min_one_element():
@@ -43,7 +47,8 @@ def test_swap_max_and_min_one_element():
 
 def test_swap_max_and_min_diff_types():
     """Проверка ввода элементов разного типа"""
-    assert (arrays.swap_max_and_min([5, False, 'b'])) is None
+    with pytest.raises(TypeError):
+        assert (arrays.swap_max_and_min([5, False, 'b']))
 
 
 def test_swap_max_and_min_equal_numbers():

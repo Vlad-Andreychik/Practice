@@ -1,3 +1,4 @@
+import pytest
 from algorithms import dicts
 
 
@@ -22,8 +23,15 @@ def test_count_it_symbols():
 
 
 def test_count_it_sentence():
-    """Проверка строку из нескольких слов"""
+    """Проверка строки из нескольких слов"""
     assert (dicts.count_it('Hello world')) == {' ': 1, 'H': 1, 'd': 1, 'e': 1, 'l': 3, 'o': 2, 'r': 1, 'w': 1}
+
+
+def test_count_it_input_int():
+    """Проверка ввода параметра типа int"""
+    with pytest.raises(TypeError):
+        number = 5
+        assert (dicts.count_it(number))
 
 
 def test_max_dct_both_empty():
@@ -52,6 +60,27 @@ def test_max_dct_with_negative_values():
     """Вводим два заполненных словаря, у которых есть отрицательные значения"""
     assert (dicts.max_dct({'a': 2, 'b': 2, 'c': 1, 'd': -5}, {'a': -7, 'b': 2, 'c': 3})) == {'a': 2, 'b': 2, 'c': 3,
                                                                                              'd': -5}
+
+
+def test_max_dct_not_dict_in_input():
+    """Вводим два не словаря"""
+    with pytest.raises(TypeError):
+        a = 5
+        b = 'as'
+        assert (dicts.max_dct(a, b))
+
+
+def test_max_dct_one_dict_and_one_not_dict_in_input():
+    """Вводим один словарь и один не словарь"""
+    with pytest.raises(TypeError):
+        a = 5
+        assert (dicts.max_dct(a, {'a': -7, 'b': 2, 'c': 3}))
+
+
+def test_max_dct_not_int_in_values():
+    """Вводим в значения данные отличные от типа int"""
+    with pytest.raises(TypeError):
+        assert (dicts.max_dct({'a': 's', 'b': 'as', 'c': True, 'd': 'z'}, {'a': 'r', 'b': '@', 'c': '%'}))
 
 
 def test_three_max_keys_empty():

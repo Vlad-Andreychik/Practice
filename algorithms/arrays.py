@@ -22,20 +22,21 @@ def max_even_elem(array):
     :return: максимальный четный элемент массива
     :rtype: int
     """
+
     # Проверка на тип данных в массиве
     for elem in array:
         if not isinstance(elem, int):
-            return logger.warning('Неверный ввод')
-    # Проверка пустой ли массив
-    try:
-        maxi = array[0]
-    except IndexError:
-        return logger.warning('Введен пустой массив')
+            raise TypeError('Введен массив с неправильным типом данных.(Требуется int)')
 
-    for elem in array[::2]:
-        if elem > maxi:
-            maxi = elem
-    return maxi
+    # Проверка пустой ли массив
+    if len(array) > 0:
+        maxi = array[0]
+        for elem in array[::2]:
+            if elem > maxi:
+                maxi = elem
+        return maxi
+    else:
+        raise IndexError('Введен пустой массив')
 
 
 def swap_max_and_min(array):
@@ -48,27 +49,28 @@ def swap_max_and_min(array):
     :type array: list
     :return: массив
     :rtype: list"""
+
     # Проверка на тип данных в массиве
     for elem in array:
         if not isinstance(elem, int):
-            return logger.warning('Неверный ввод')
+            raise TypeError('Введен массив с неправильным типом данных.(Требуется int)')
+
     # Проверка пустой ли массив
-    try:
+    if len(array) > 0:
         maxi = array[0]
         mini = array[0]
-    except IndexError:
-        return logger.warning('Введен пустой массив')
-
-    for elem in array:
-        if elem > maxi:
-            maxi = elem
-        if elem < mini:
-            mini = elem
-    index_mini = array.index(mini)
-    index_maxi = array.index(maxi)
-    array[index_maxi] = mini
-    array[index_mini] = maxi
-    return array
+        for elem in array:
+            if elem > maxi:
+                maxi = elem
+            if elem < mini:
+                mini = elem
+        index_mini = array.index(mini)
+        index_maxi = array.index(maxi)
+        array[index_maxi] = mini
+        array[index_mini] = maxi
+        return array
+    else:
+        raise IndexError('Введен пустой массив')
 
 
 def delete_negatives(array):
@@ -82,25 +84,25 @@ def delete_negatives(array):
     :return: массив без отрицательных элементов
     :rtype: list
     """
+
     # Проверка на тип данных в массиве
     for elem in array:
         if not isinstance(elem, int):
-            return logger.warning('Неверный ввод')
-    # Проверка пустой ли массив
-    try:
-        array[0]
-    except IndexError:
-        return logger.warning('Введен пустой массив')
+            raise TypeError('Введен массив с неправильным типом данных.(Требуется int)')
 
-    negatives = []
-    new_array = []
-    for elem in array:
-        if elem < 0:
-            negatives.append(elem)
-    for elem in array:
-        if elem not in negatives:
-            new_array.append(elem)
-    return new_array
+    # Проверка пустой ли массив
+    if len(array) > 0:
+        negatives = []
+        new_array = []
+        for elem in array:
+            if elem < 0:
+                negatives.append(elem)
+        for elem in array:
+            if elem not in negatives:
+                new_array.append(elem)
+        return new_array
+    else:
+        raise IndexError('Введен пустой массив')
 
 
 def selection_sort(array):
@@ -114,25 +116,25 @@ def selection_sort(array):
     :return: отсортированный массив
     :rtype: list
     """
+
     # Проверка на тип данных в массиве
     for elem in array:
         if not isinstance(elem, int):
-            return logger.warning('Неверный ввод')
-    # Проверка пустой ли массив
-    try:
-        array[0]
-    except IndexError:
-        return logger.warning('Введен пустой массив')
+            raise TypeError('Введен массив с неправильным типом данных.(Требуется int)')
 
-    i = len(array)
-    while i > 0:
-        maxi = 0
-        for number in range(1, i):
-            if array[number] > array[maxi]:
-                maxi = number
-        array[maxi], array[i - 1] = array[i - 1], array[maxi]
-        i -= 1
-    return array
+    # Проверка пустой ли массив
+    if len(array) > 0:
+        i = len(array)
+        while i > 0:
+            maxi = 0
+            for number in range(1, i):
+                if array[number] > array[maxi]:
+                    maxi = number
+            array[maxi], array[i - 1] = array[i - 1], array[maxi]
+            i -= 1
+        return array
+    else:
+        raise IndexError('Введен пустой массив')
 
 
 def frequency_sorting(array):
@@ -147,24 +149,24 @@ def frequency_sorting(array):
         :return: отсортированный массив
         :rtype: list
     """
+
     # Проверка на тип данных в массиве
     for elem in array:
         if not isinstance(elem, int):
-            return logger.warning('Неверный ввод')
-    # Проверка пустой ли массив
-    try:
-        array[0]
-    except IndexError:
-        return logger.warning('Введен пустой массив')
+            raise TypeError('Введен массив с неправильным типом данных.(Требуется int)')
 
-    array.sort()
-    dictionary = {}
-    new_array = []
-    for num in array:
-        dictionary[num] = array.count(num)
-    numb = list(dictionary.items())
-    numb = sorted(numb, key=itemgetter(1), reverse=True)
-    for i in numb:
-        for c in range(i[1]):
-            new_array.append(i[0])
-    return new_array
+    # Проверка пустой ли массив
+    if len(array) > 0:
+        array.sort()
+        dictionary = {}
+        new_array = []
+        for num in array:
+            dictionary[num] = array.count(num)
+        numb = list(dictionary.items())
+        numb = sorted(numb, key=itemgetter(1), reverse=True)
+        for i in numb:
+            for c in range(i[1]):
+                new_array.append(i[0])
+        return new_array
+    else:
+        raise IndexError('Введен пустой массив')

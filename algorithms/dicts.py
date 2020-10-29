@@ -1,3 +1,16 @@
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+
+file_handler = logging.FileHandler('..//logs//dicts.log', mode='w')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+
 def count_it(text):
     """Дана строка.
 
@@ -7,6 +20,9 @@ def count_it(text):
     :type text: str
     :return: Словарь
     :rtype: dict"""
+
+    if not isinstance(text, str):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется str)')
     return {i: text.count(i) for i in text}
 
 
@@ -27,6 +43,8 @@ def max_dct(first_dict, second_dict):
     :return: новый словарь
     :rtype: dict
     """
+    if not isinstance(first_dict, dict) or not isinstance(second_dict, dict):
+        raise TypeError('Ошибка ввода. Требуется ввести два словаря.')
     third_dict = {}
     for first_key in list(first_dict.keys()):
         for second_key in list(second_dict.keys()):
@@ -56,6 +74,8 @@ def three_max_keys(dictionary):
     :return: словарь с тремя ключами с наибольшим значением
     :rtype: dict
     """
+    if not isinstance(dictionary, dict):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется dict)')
     flag = True
     for value in dictionary.values():
         if isinstance(value, int):
@@ -87,6 +107,8 @@ def my_print(dictionary):
     :return: словарь без вложенных словарей
     :rtype: dict
     """
+    if not isinstance(dictionary, dict):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется dict)')
     new_dict = {}
     for key, value in dictionary.items():
         if not isinstance(value, dict) or (not value):
@@ -108,6 +130,8 @@ def multiple_values(dictionary):
     :return: произведение значений словаря
     :rtype: int
     """
+    if not isinstance(dictionary, dict):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется dict)')
     flag = False
     for value in dictionary.values():
         if isinstance(value, int):

@@ -19,10 +19,10 @@ def reverse(text):
     :return: перевернутая строка
     :rtype: str
     """
-    try:
+    if not isinstance(text, str):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется str)')
+    else:
         return text[::-1]
-    except TypeError:
-        logger.error('Ошибка ввода')
 
 
 def unrepeated_letters(text):
@@ -51,10 +51,13 @@ def count_words(text):
     :return: число слов в строке
     :rtype: int
     """
-    if text.isspace():
-        return 0
+    if not isinstance(text, str):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется str)')
     else:
-        return len(text.split())
+        if text.isspace():
+            return 0
+        else:
+            return len(text.split())
 
 
 def change_piece(text, old, new):
@@ -121,7 +124,10 @@ def reverse_words_positions(text):
     :return: строка с обратным порядком слов
     :rtype: str
     """
-    return ' '.join(text.split()[::-1])
+    if not isinstance(text, str):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется str)')
+    else:
+        return ' '.join(text.split()[::-1])
 
 
 def delete_spaces(text):
@@ -136,4 +142,7 @@ def delete_spaces(text):
      :return: строка без лишних пробелов
      :rtype: str
      """
-    return ' '.join(text.strip(' ').split())
+    if not isinstance(text, str):
+        raise TypeError('Введен параметр с неправильным типом данных.(Требуется str)')
+    else:
+        return ' '.join(text.strip(' ').split())
