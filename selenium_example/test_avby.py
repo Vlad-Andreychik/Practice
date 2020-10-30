@@ -17,21 +17,41 @@ def get_driver(browser_name):
     return driver
 
 
-def test_request_not_found():
+def request_setup(brand=None, model=None, year_from=None):
     driver = get_driver('firefox')
     driver.get("https://av.by/")
 
-    car_brand = driver.find_element_by_xpath(xpath_av_by.AUDI)
+    car_brand = driver.find_element_by_xpath(brand)
     car_brand.click()
 
-    car_model = driver.find_element_by_xpath(xpath_av_by.AUDI_100)
+    car_model = driver.find_element_by_xpath(model)
     car_model.click()
 
-    produce_year = driver.find_element_by_xpath(xpath_av_by.PRODUCE_YEAR)
-    produce_year.click()
+    if year_from is not None:
+        produce_year = driver.find_element_by_xpath(xpath_av_by.PRODUCE_YEAR)
+        produce_year.click()
+        produce_year_from = driver.find_element_by_xpath(year_from)
+        produce_year_from.click()
+    return driver
 
-    produce_year_from = driver.find_element_by_xpath(xpath_av_by.PRODUCE_YEAR_FROM)
-    produce_year_from.click()
+
+def authorization_setup(login=None, password=None):
+    driver = get_driver('firefox')
+    driver.get("https://av.by/login/")
+
+    login_field = driver.find_element_by_xpath(xpath_av_by.INPUT_LOGIN)
+    login_field.send_keys(login)
+
+    password_field = driver.find_element_by_xpath(xpath_av_by.INPUT_PASSWORD)
+    password_field.send_keys(password)
+    password_field.send_keys(Keys.RETURN)
+    return driver
+
+
+def test_request_not_found():
+    driver = request_setup(brand=xpath_av_by.AUDI,
+                           model=xpath_av_by.AUDI_100,
+                           year_from=xpath_av_by.PRODUCE_YEAR_FROM)
 
     search = driver.find_element_by_xpath(xpath_av_by.SEARCH)
     search.click()
@@ -41,14 +61,8 @@ def test_request_not_found():
 
 
 def test_request_found():
-    driver = get_driver('firefox')
-    driver.get("https://av.by/")
-
-    car_brand = driver.find_element_by_xpath(xpath_av_by.AUDI)
-    car_brand.click()
-
-    car_model = driver.find_element_by_xpath(xpath_av_by.AUDI_100)
-    car_model.click()
+    driver = request_setup(brand=xpath_av_by.AUDI,
+                           model=xpath_av_by.AUDI_100)
 
     search = driver.find_element_by_xpath(xpath_av_by.SEARCH)
     search.click()
@@ -58,45 +72,21 @@ def test_request_found():
 
 
 def test_authorization():
-    driver = get_driver('firefox')
-    driver.get("https://av.by/login/")
-
-    login = driver.find_element_by_xpath(xpath_av_by.INPUT_LOGIN)
-    login.send_keys('vlad.zver@tyt.by')
-
-    password = driver.find_element_by_xpath(xpath_av_by.INPUT_PASSWORD)
-    password.send_keys('135790qwe')
-    password.send_keys(Keys.RETURN)
+    driver = authorization_setup(login='vlad.zver@tyt.by', password='135790qwe')
 
     assert driver.find_element_by_xpath(xpath_av_by.USER_BAR)
     driver.quit()
 
 
 def test_authorization_wrong_login():
-    driver = get_driver('firefox')
-    driver.get("https://av.by/login/")
-
-    login = driver.find_element_by_xpath(xpath_av_by.INPUT_LOGIN)
-    login.send_keys('vlad.zver@t')
-
-    password = driver.find_element_by_xpath(xpath_av_by.INPUT_PASSWORD)
-    password.send_keys('135790qwe')
-    password.send_keys(Keys.RETURN)
+    driver = authorization_setup(login='vlad.zver@t', password='135790qwe')
 
     assert driver.find_element_by_xpath(xpath_av_by.ERROR_MESSAGE)
     driver.quit()
 
 
 def test_authorization_wrong_password():
-    driver = get_driver('firefox')
-    driver.get("https://av.by/login/")
-
-    login = driver.find_element_by_xpath(xpath_av_by.INPUT_LOGIN)
-    login.send_keys('vlad.zver@tyt.by')
-
-    password = driver.find_element_by_xpath(xpath_av_by.INPUT_PASSWORD)
-    password.send_keys('135790')
-    password.send_keys(Keys.RETURN)
+    driver = authorization_setup(login='vlad.zver@tyt.by', password='135790')
 
     assert driver.find_element_by_xpath(xpath_av_by.ERROR_MESSAGE)
     driver.quit()
