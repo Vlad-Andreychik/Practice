@@ -1,11 +1,23 @@
-class xpath_av_by(object):
-    AUDI = '//option[@value=6]'
-    AUDI_100 = '//option[@value="10"]'
-    PRODUCE_YEAR = '//div[@class="dropselect-head js-dropselect-head dropselect-head-year"]'
-    PRODUCE_YEAR_FROM = '//select[@name="year_from"]/option[@value="2000"]'
-    SEARCH = '//button[@id="submit_presearch"]'
-    LISTING_TITLE = '//h3[@class="listing__title"]'
-    INPUT_LOGIN = '//input[@id="login"]'
-    INPUT_PASSWORD = '//input[@id="password"]'
-    USER_BAR = '//li[@class="nav__item nav__item--dropdown nav__item--user"]'
-    ERROR_MESSAGE = '//div[@class ="error-message"]'
+INPUT_LOGIN = '//input[@id="login"]'
+INPUT_PASSWORD = '//input[@id="password"]'
+USER_BAR = '//li[@class="nav__item nav__item--dropdown nav__item--user"]'
+ERROR_MESSAGE = '//div[@class ="error-message"]'
+SEARCH = '//button[@id="submit_presearch"]'
+PRODUCE_YEAR = '//div[@class="dropselect-head js-dropselect-head dropselect-head-year"]'
+LISTING_TITLE = '//h3[@class="listing__title"]'
+
+
+def brand(name):
+    return '//option[text()="{}"]'.format(name)
+
+
+def model_auto(model):
+    return '//option[text()="{}"]'.format(model)
+
+
+def year_from(year):
+    return '//select[@name="year_from"]/option[text()="{}"]'.format(year)
+
+
+def year_to(year):
+    return '//select[@name="year_to"]/option[text()="{}"]'.format(year)
