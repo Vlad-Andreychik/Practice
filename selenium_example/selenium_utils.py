@@ -16,8 +16,8 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
-chrome_driver = 'D:\vandreychik\Practice\selenium_example\chromedriver.exe'
-url = 'https://av.by/login/'
+chrome_driver = 'chromedriver.exe'
+url = 'https://av.by'
 
 
 def get_driver(browser_name):
@@ -41,17 +41,18 @@ def go_to_url(driver):
 def wait_element(driver, xpath):
     wait = WebDriverWait(driver, 10)
 
-    element = None
-    attempts = 3
+    # element = None
+    attempts = 1
     while attempts != 0:
         try:
             element = wait.until(ec.visibility_of_element_located((By.XPATH, xpath)))
+            return element
         except TimeoutException:
             attempts -= 1
-    return element
+    raise TimeoutException
 
 
 def click_element(driver, xpath):
     element = wait_element(driver, xpath)
-    if element is not None:
+    if element:
         element.click()

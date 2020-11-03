@@ -1,16 +1,16 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium_example.xpath import ImmutableXpath
+import selenium_example.xpath as xpath
 from selenium_example.av_by_utils import search_auto
-from selenium_example.selenium_utils import wait_element
+from selenium_example.selenium_utils import wait_element, get_driver, go_to_url
 
-
-def test_searching_cars_wrong_year_from():
-    assert wait_element(search_auto('Audi', '100', year_from='2000')).until(
-        EC.visibility_of_element_located((By.XPATH, ImmutableXpath.ERROR_MESSAGE)))
+driver = get_driver('chrome')
+go_to_url(driver)
 
 
 def test_searching_cars_with_model():
-    assert wait_element(search_auto('Audi', 'TT')).until(
-        EC.visibility_of_element_located((By.XPATH, ImmutableXpath.LISTING_TITLE)))
+    search_auto(driver, brand='Audi', model='TT')
+    assert wait_element(driver, xpath.LISTING_TITLE)
+
+
+def test_searching_cars_wrong_year_from():
+    search_auto(driver, brand='Audi', model='100', year_from='2000')
+    assert wait_element(driver, xpath.EMPTY_SEARCH)
