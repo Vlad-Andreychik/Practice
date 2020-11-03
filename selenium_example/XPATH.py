@@ -5,6 +5,7 @@ ERROR_MESSAGE = '//div[@class ="error-message"]'
 SEARCH = '//button[@id="submit_presearch"]'
 PRODUCE_YEAR = '//div[@class="dropselect-head js-dropselect-head dropselect-head-year"]'
 LISTING_TITLE = '//h3[@class="listing__title"]'
+EMPTY_SEARCH = '//h2[text()="Мы не нашли объявлений по вашему запросу"]'
 
 
 def brand(name):
@@ -12,7 +13,7 @@ def brand(name):
 
 
 def model_auto(model):
-    return '//option[text()="{}"]'.format(model)
+    return '//select[@id="model_id"]/option[text()="{}"]'.format(model)
 
 
 def year_from(year):
