@@ -6,8 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-import selenium_example.xpath as sxpath
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
@@ -20,51 +18,33 @@ logger.addHandler(file_handler)
 
 
 def get_driver(browser_name):
-    if browser_name.lower() == 'chrome':
-        driver = webdriver.Chrome(
-            executable_path='C:\\Program Files\\Python37\\my_scripts\\ui_tests_for_support\\chromedriver.exe')
-    elif browser_name.lower() == 'firefox':
+    browser = browser_name.lower()
+    if browser == 'chrome':
+        driver = webdriver.Chrome(executable_path='D:\vandreychik\Practice\selenium_example\chromedriver.exe')
+    elif browser == 'firefox':
         driver = webdriver.Firefox()
-    elif browser_name.lower() == 'edge':
+    elif browser == 'edge':
         driver = webdriver.Edge()
     else:
         raise TypeError('Данный тип браузера не поддерживается')
     driver.maximize_window()
-
     return driver
 
 
-def wait(driver):
-    return WebDriverWait(driver, 10)
+def wait_element(driver, xpath):
+    wait = WebDriverWait(driver, 10)
 
-
-def select(driver, xpath):
+    element = None
     attempts = 3
     while attempts != 0:
         try:
-            return wait(driver).until(ec.visibility_of_element_located((By.XPATH, xpath)))
+            element = wait.until(ec.visibility_of_element_located((By.XPATH, xpath)))
         except TimeoutException:
             attempts -= 1
+    return element
 
 
-def select_click(select):
-    if select:
-        select.click()
-
-
-def select_brand(driver, name):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_brand(name)))).click()
-
-
-def select_model(driver, model='Любая'):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_model_auto(model)))).click()
-
-
-def select_year(driver, year_from='с', year_to='по'):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.PRODUCE_YEAR))).click()
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_year_from(year_from)))).click()
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.year_to(year_to)))).click()
-
-
-def search(driver):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.SEARCH))).click()
+def click_element(driver, xpath):
+    element = wait_element(driver, xpath)
+    if element is not None:
+        element.click()
