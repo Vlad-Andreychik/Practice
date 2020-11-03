@@ -8,15 +8,15 @@ LISTING_TITLE = '//h3[@class="listing__title"]'
 EMPTY_SEARCH = '//h2[text()="Мы не нашли объявлений по вашему запросу"]'
 
 
-def brand(name):
+def get_brand(name):
     return '//option[text()="{}"]'.format(name)
 
 
-def model_auto(model):
+def get_model_auto(model):
     return '//select[@id="model_id"]/option[text()="{}"]'.format(model)
 
 
-def year_from(year):
+def get_year_from(year):
     return '//select[@name="year_from"]/option[text()="{}"]'.format(year)
 
 

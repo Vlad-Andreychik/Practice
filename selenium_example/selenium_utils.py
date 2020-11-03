@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-import selenium_example.XPATH as sxpath
+import selenium_example.xpath as sxpath
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -21,13 +21,14 @@ logger.addHandler(file_handler)
 
 def get_driver(browser_name):
     if browser_name.lower() == 'chrome':
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(
+            executable_path='C:\\Program Files\\Python37\\my_scripts\\ui_tests_for_support\\chromedriver.exe')
     elif browser_name.lower() == 'firefox':
         driver = webdriver.Firefox()
     elif browser_name.lower() == 'edge':
         driver = webdriver.Edge()
     else:
-        raise TypeError('Ошибка ввода имени браузера')
+        raise TypeError('Данный тип браузера не поддерживается')
     driver.maximize_window()
 
     return driver
@@ -52,16 +53,16 @@ def select_click(select):
 
 
 def select_brand(driver, name):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.brand(name)))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_brand(name)))).click()
 
 
 def select_model(driver, model='Любая'):
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.model_auto(model)))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_model_auto(model)))).click()
 
 
 def select_year(driver, year_from='с', year_to='по'):
     wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.PRODUCE_YEAR))).click()
-    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.year_from(year_from)))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.get_year_from(year_from)))).click()
     wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.year_to(year_to)))).click()
 
 

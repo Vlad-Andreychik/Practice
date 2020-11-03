@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-from selenium_example.XPATH import ImmutableXpath
-from selenium_example.searching_cars import search_auto
-from selenium_example.utilities import wait
+from selenium_example.xpath import ImmutableXpath
+from selenium_example.av_by_utils import search_auto
+from selenium_example.selenium_utils import wait
 
 
 def test_searching_cars_wrong_year_from():
