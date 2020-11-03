@@ -1,11 +1,12 @@
 import logging
 
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from selenium_example.XPATH import brand, ImmutableXpath
+import selenium_example.XPATH as sxpath
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -26,7 +27,7 @@ def get_driver(browser_name):
     elif browser_name.lower() == 'edge':
         driver = webdriver.Edge()
     else:
-        return logger.warning('Неверный ввод названия браузера')
+        raise TypeError('Ошибка ввода имени браузера')
     driver.maximize_window()
 
     return driver
@@ -36,19 +37,33 @@ def wait(driver):
     return WebDriverWait(driver, 10)
 
 
+def select(driver, xpath):
+    attempts = 3
+    while attempts != 0:
+        try:
+            return wait(driver).until(ec.visibility_of_element_located((By.XPATH, xpath)))
+        except TimeoutException:
+            attempts -= 1
+
+
+def select_click(select):
+    if select:
+        select.click()
+
+
 def select_brand(driver, name):
-    wait(driver).until(EC.presence_of_element_located((By.XPATH, brand(name)))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.brand(name)))).click()
 
 
 def select_model(driver, model='Любая'):
-    wait(driver).until(EC.presence_of_element_located((By.XPATH, model))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.model_auto(model)))).click()
 
 
-def select_year(driver, year_from, year_to):
-    wait(driver).until(EC.visibility_of_element_located((By.XPATH, ImmutableXpath.PRODUCE_YEAR))).click()
-    wait(driver).until(EC.visibility_of_element_located((By.XPATH, year_from))).click()
-    wait(driver).until(EC.visibility_of_element_located((By.XPATH, year_to))).click()
+def select_year(driver, year_from='с', year_to='по'):
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.PRODUCE_YEAR))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.year_from(year_from)))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.year_to(year_to)))).click()
 
 
 def search(driver):
-    wait(driver).until(EC.visibility_of_element_located((By.XPATH, ImmutableXpath.SEARCH))).click()
+    wait(driver).until(ec.visibility_of_element_located((By.XPATH, sxpath.SEARCH))).click()
