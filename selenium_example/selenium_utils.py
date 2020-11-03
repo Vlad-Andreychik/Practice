@@ -16,11 +16,14 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
+chrome_driver = 'D:\vandreychik\Practice\selenium_example\chromedriver.exe'
+url = 'https://av.by/login/'
+
 
 def get_driver(browser_name):
     browser = browser_name.lower()
     if browser == 'chrome':
-        driver = webdriver.Chrome(executable_path='D:\vandreychik\Practice\selenium_example\chromedriver.exe')
+        driver = webdriver.Chrome(executable_path=chrome_driver)
     elif browser == 'firefox':
         driver = webdriver.Firefox()
     elif browser == 'edge':
@@ -29,6 +32,10 @@ def get_driver(browser_name):
         raise TypeError('Данный тип браузера не поддерживается')
     driver.maximize_window()
     return driver
+
+
+def go_to_url(driver):
+    driver.get(url)
 
 
 def wait_element(driver, xpath):
