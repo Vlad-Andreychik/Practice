@@ -55,5 +55,5 @@ def wait_element(driver, xpath):
 
 def click_element(driver, xpath):
     element = wait_element(driver, xpath)
-    if element:
+    if element is not None:
         element.click()
