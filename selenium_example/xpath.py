@@ -6,6 +6,8 @@ SEARCH = '//button[@id="submit_presearch"]'
 PRODUCE_YEAR = '//div[@class="dropselect-head js-dropselect-head dropselect-head-year"]'
 LISTING_TITLE = '//h3[@class="listing__title"]'
 EMPTY_SEARCH = '//h2[text()="Мы не нашли объявлений по вашему запросу"]'
+LISTING_CONTAINER = '//div[@class="listing__container"]'
+LISTING_ITEMS = '//div[@class="listing-item"]'
 
 
 def get_brand(name):
