@@ -21,6 +21,7 @@ firefox_driver = 'geckodriver.exe'
 url = 'https://av.by'
 
 
+# TODO[agorozhanko 05.11.2020]:браузер запускается с чистым кэшем и куки?
 def get_driver(browser_name):
     browser = browser_name.lower()
     if browser == 'chrome':

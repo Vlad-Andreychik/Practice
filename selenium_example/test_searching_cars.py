@@ -8,6 +8,7 @@ driver = get_driver('chrome')
 go_to_url(driver)
 
 
+# TODO[agorozhanko 05.11.2020]:где должны находится фикстуры?
 @pytest.fixture()
 def closing_browser():
     yield
@@ -21,6 +22,7 @@ def back_page():
     driver.refresh()
 
 
+# TODO[agorozhanko 05.11.2020]:где запуск браузера перед каждым тестом и закрытие после?
 def test_searching_cars_with_model(back_page):
     search_auto(driver, brand='Audi', model='TT')
     listing_container = wait_element(driver, xpath.LISTING_CONTAINER)
