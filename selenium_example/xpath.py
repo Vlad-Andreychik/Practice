@@ -7,7 +7,7 @@ USER_BAR = '//li[@class="nav__item nav__item--dropdown nav__item--user"]'
 
 # Сообщения
 ERROR_MESSAGE = '//div[@class ="error-message"]'
-EMPTY_SEARCH = '//h2[text()="Мы не нашли объявлений по вашему запросу"]'
+EMPTY_SEARCH = '//div[@class="listing__empty"]/h2'
 
 # Кнопки
 SEARCH = '//button[@id="submit_presearch"]'
