@@ -22,6 +22,12 @@ url = 'https://av.by'
 
 
 def get_driver(browser_name):
+    """
+    Метод осуществляет настройку веб-драйвера
+
+    :param browser_name: имя браузера
+    :return: веб-драйвер
+    """
     browser = browser_name.lower()
     if browser == 'chrome':
         driver = webdriver.Chrome(executable_path=chrome_driver)
@@ -36,10 +42,22 @@ def get_driver(browser_name):
 
 
 def go_to_url(driver):
+    """
+    Метод осуществляет переход на страницу по URL
+
+    :param driver: веб-драйвер
+    """
     driver.get(url)
 
 
 def wait_element(driver, xpath):
+    """
+    Метод осуществляет поиск веб-элемента с использованием ожидания
+
+    :param driver: веб-драйвер
+    :param xpath: xpath искомого веб-элемента
+    :return: веб-элемент
+    """
     wait = WebDriverWait(driver, 10)
 
     element = None
@@ -54,6 +72,12 @@ def wait_element(driver, xpath):
 
 
 def click_element(driver, xpath):
+    """
+    Метод осушествляет нажатие на веб-элемент
+
+    :param driver: веб-драйвер
+    :param xpath: xpath веб-элемента
+    """
     element = wait_element(driver, xpath)
     if element is not None:
         element.click()
