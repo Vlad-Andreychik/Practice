@@ -22,6 +22,7 @@ url = 'https://av.by'
 
 
 # TODO[agorozhanko 05.11.2020]:браузер запускается с чистым кэшем и куки?
+# TODO[vandreychyk 05.11.2020]: пока добавил только очистку куки
 def get_driver(browser_name):
     """
     Метод осуществляет настройку веб-драйвера
@@ -38,6 +39,7 @@ def get_driver(browser_name):
         driver = webdriver.Edge()
     else:
         raise TypeError('Данный тип браузера не поддерживается')
+    driver.delete_all_cookies()
     driver.maximize_window()
     return driver
 
