@@ -8,7 +8,7 @@ from selenium_example.selenium_utils import wait_element
 # TODO[agorozhanko 06.11.2020]:код не запускается, снова
 
 # TODO[agorozhanko 06.11.2020]:где тесты логина?
-def test_searching_cars_with_model():
+def test_searching_cars_with_model(setup, driver):
     """
     Тест поиска авто с корректным вводом данных
     """
@@ -18,7 +18,7 @@ def test_searching_cars_with_model():
     assert len(listing_items) > 0
 
 
-def test_searching_cars_wrong_year_from():
+def test_searching_cars_wrong_year_from(setup, driver):
     """
     Тест поиска авто с некорректным вводом данных(несуществующий год выпуска для данной модели марки)
     """
