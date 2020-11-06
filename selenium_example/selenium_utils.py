@@ -18,7 +18,8 @@ logger.addHandler(file_handler)
 
 chrome_driver = 'chromedriver.exe'
 firefox_driver = 'geckodriver.exe'
-url = 'https://av.by'
+url_main = 'https://av.by'
+url_login = 'https://av.by/login'
 
 
 # TODO[agorozhanko 05.11.2020]:браузер запускается с чистым кэшем и куки?
@@ -44,13 +45,22 @@ def get_driver(browser_name):
     return driver
 
 
-def go_to_url(driver):
+def go_to_url_main(driver):
     """
-    Метод осуществляет переход на страницу по URL
+    Метод осуществляет переход на главную страницу по URL
 
     :param driver: веб-драйвер
     """
-    driver.get(url)
+    driver.get(url_main)
+
+
+def go_to_url_login(driver):
+    """
+    Метод осуществляет переход на страницу авторизации по URL
+
+    :param driver: веб-драйвер
+    """
+    driver.get(url_login)
 
 
 def wait_element(driver, xpath):
@@ -84,3 +94,15 @@ def click_element(driver, xpath):
     element = wait_element(driver, xpath)
     if element is not None:
         element.click()
+
+
+def send_keys_element(driver, xpath, text):
+    """
+    Метод осуществляет набор текста в элемент
+    :param driver: веб-драйвер
+    :param xpath: икспас элемента
+    :param text: набираемый текст
+    """
+    element = wait_element(driver, xpath)
+    if element is not None:
+        element.send_keys(text)
