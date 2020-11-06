@@ -3,13 +3,11 @@ from selenium_example.av_by_utils import search_auto
 from selenium_example.selenium_utils import wait_element
 
 
-# TODO[agorozhanko 05.11.2020]:где должны находится фикстуры?
-# TODO[vandreychyk 05.11.2020]: перенес в conftest.py
-
-
 # TODO[agorozhanko 05.11.2020]:где запуск браузера перед каждым тестом и закрытие после?
 
+# TODO[agorozhanko 06.11.2020]:код не запускается, снова
 
+# TODO[agorozhanko 06.11.2020]:где тесты логина?
 def test_searching_cars_with_model():
     """
     Тест поиска авто с корректным вводом данных

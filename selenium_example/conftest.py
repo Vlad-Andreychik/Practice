@@ -21,4 +21,4 @@ def back_page():
     """
     yield
     driver.back()
-    driver.refresh()
+    driver.refresh() # TODO[agorozhanko 06.11.2020]: где пустая строка в конце файла?
