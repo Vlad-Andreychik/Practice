@@ -1,24 +1,35 @@
 import pytest
 
-from selenium_example.selenium_utils import get_driver
-
-driver = get_driver('chrome')
+from selenium_example.selenium_utils import get_driver, go_to_url_main, go_to_url_login
 
 
 @pytest.fixture()
-def closing_browser():
+def setup_search(driver):
     """
-    Фикстура закрывает браузер после выполнения всех тестов в данном модуле
+    Фикстура переходит по url-адресу на главную страницу, проводит тест и закрывает браузер.
     """
+    go_to_url_main(driver)
     yield
     driver.quit()
 
 
 @pytest.fixture()
-def back_page():
+def setup_authorization(driver):
     """
-    Фикстура возвращает предыдущую страницу и обновляет ее после выполнения теста, который использует ее
+    Фикстура переходит по url-адресу на страницу авторизации, проводит тест и закрывает браузер.
     """
+    go_to_url_login(driver)
     yield
-    driver.back()
-    driver.refresh() # TODO[agorozhanko 06.11.2020]: где пустая строка в конце файла?
+    driver.quit()
+
+
+@pytest.fixture()
+def driver():
+    """
+    Фикстура создания драйвера.
+    """
+    driver = get_driver('chrome')
+    return driver
+
+# TODO[agorozhanko 06.11.2020]: где пустая строка в конце файла?
+# TODO[vandreychyk 06.11.2020]: добавил
