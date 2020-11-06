@@ -1,6 +1,7 @@
 # Авторизация пользователя
 INPUT_LOGIN = '//input[@id="login"]'
 INPUT_PASSWORD = '//input[@id="password"]'
+SUBMIT = '//button[@class="button button--action"]'
 
 # Страница пользователя
 USER_BAR = '//li[@class="nav__item nav__item--dropdown nav__item--user"]'
