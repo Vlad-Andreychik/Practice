@@ -4,10 +4,13 @@ from selenium_example.selenium_utils import wait_element
 
 
 # TODO[agorozhanko 05.11.2020]:где запуск браузера перед каждым тестом и закрытие после?
+# TODO[vandreychyk 06.11.2020]: сделал фикстуры
 
 # TODO[agorozhanko 06.11.2020]:код не запускается, снова
+# TODO[vandreychyk 06.11.2020]: запускается
 
 # TODO[agorozhanko 06.11.2020]:где тесты логина?
+# TODO[vandreychyk 06.11.2020]: сделал в другом пакете
 def test_searching_cars_with_model(setup, driver):
     """
     Тест поиска авто с корректным вводом данных
