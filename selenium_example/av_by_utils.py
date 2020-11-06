@@ -58,3 +58,42 @@ def search(driver):
     :param driver: веб-драйвер
     """
     su.click_element(driver, sxpath.SEARCH)
+
+
+def authorization(driver, login, password):
+    """
+    Метод осуществляет авторизацию на сайте
+
+    :param driver: веб-драйвер
+    :param login: логин
+    :param password: пароль
+    """
+    login_input(driver, login)
+    password_input(driver, password)
+
+    submit(driver)
+
+
+def login_input(driver, login):
+    """
+    Метод вводит логин
+
+    :param driver: веб-драйвер
+    :param login: логин
+    """
+    su.send_keys_element(driver, sxpath.INPUT_LOGIN, login)
+
+
+def password_input(driver, password):
+    """
+    Метод вводит пароль
+
+    :param driver: веб-драйвер
+    :param password: пароль
+    """
+    su.send_keys_element(driver, sxpath.INPUT_PASSWORD, password)
+
+
+def submit(driver):
+    """Метод осуществляет вход"""
+    su.click_element(driver, sxpath.SUBMIT)
