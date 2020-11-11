@@ -99,7 +99,7 @@ def click_element(driver, xpath):
 
 def send_keys_element(driver, xpath, text):
     """
-    Метод осуществляет набор текста в элемент
+    
     :param driver: веб-драйвер
     :param xpath: икспас элемента
     :param text: набираемый текст
