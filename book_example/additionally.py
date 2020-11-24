@@ -39,3 +39,15 @@ def using_assert():
     logger.info(my_list.pop())
     logger.info(my_list)
     assert len(my_list) >= 1
+
+# spisok = ['s.brel_dolls', 'afcspark', 'thecooltravell', 'maks_trololo', 'denchik_kozlovsky',
+#           'razinkov.nik', 'mmockingbirdd', 'alienzombiie', 'your_shev', 'klimuts', 'ivan.brel',
+#           '_sh_andrew', 'me_reak_', 'romanovskii_n', 'lazhik_51k', 'vadik_grebnev', 'slava.noker',
+#           'natalia_khovanskih', 'stakford', 'vlad1k_23', 'krich_sergey', 'anton_captain_spark',
+#           'lug_rom', 'tan_pan1788', 'boriseviche97', 'davai_tak88', 'stepankerus', 'antonbudzila',
+#           'katherina_d', 'eugene_eki', 'kerunak', 'katrinn_pinchuk', 'ruslannazarenko23',
+#           'pimanelli', 'yulka_pavlova18', 'mari.smrnv', 'katty_aulova', 'rnvsk_xx', 'kr.blnv',
+#           'andreichik.viktoria', 'kkrichevtsova', 'elenaair', 'miityaaa', 'aneleair', 'mari_andre',
+#           'alexey_banchuk', 'e.parkhomenka', 'gkonoplich', 'inastassi', 'sanchos_sh', 'diandrey',
+#           'da71lenko', 'vlad_kutsarenko', 'ratmir.kenzheev', 'olepinchuk', 'maksimoptimus_goraim',
+#           'bayer17foryou']
